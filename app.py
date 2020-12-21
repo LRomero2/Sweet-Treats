@@ -103,7 +103,7 @@ def logout():
 
 
 @app.route("/add_recipe")
-def add_task():
+def add_recipe():
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_recipe.html", categories=categories)
 
