@@ -104,7 +104,7 @@ def logout():
 
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
-     if request.method == "POST":
+    if request.method == "POST":
         is_urgent = "on" if request.form.get("is_urgent") else "off"
         recipe = {
             "category_name": request.form.get("category_name"),
@@ -120,7 +120,6 @@ def add_recipe():
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_recipe.html", categories=categories)
-
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
