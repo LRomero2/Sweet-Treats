@@ -14,3 +14,10 @@
     margin: 5px;
     line-height: 42px;
 }
+
+.card-image{
+    height:300px;
+    width:auto;
+    overflow:hidden;
+}
+
