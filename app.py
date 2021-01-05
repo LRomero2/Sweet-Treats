@@ -198,8 +198,15 @@ def delete_category(category_id):
 
 @app.route("/display_category/<category_name>")
 def display_category(category_name):
-      recipes_in_category = mongo.db.recipes.find({"category": category_name})
+      recipes_in_category = mongo.db.recipes.find({"category_name": category_name})
       return render_template("category.html", recipes = recipes_in_category)
+
+
+@app.route("/display_recipe/<recipe_id>")
+def display_recipe(recipe_id):
+      recipes_in_category = mongo.db.recipes.find({"_id": ObjectId(recipe_id)})
+      return render_template("display_recipe.html", recipe = recipe_in_category)
+
 
 
 if __name__ == "__main__":
