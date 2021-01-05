@@ -117,6 +117,8 @@ def add_recipe():
             "category_name": request.form.get("category_name"),
             "recipe_name": request.form.get("recipe_name"),
             "recipe_description": request.form.get("recipe_description"),
+            "ingredients": request.form.get("ingredients"),
+            "method": request.form.get("method"),
             "is_urgent": is_urgent,
             "due_date": request.form.get("due_date"),
             "created_by": session["user"]
@@ -137,6 +139,8 @@ def edit_recipe(recipe_id):
             "category_name": request.form.get("category_name"),
             "recipe_name": request.form.get("recipe_name"),
             "recipe_description": request.form.get("recipe_description"),
+            "ingredients": request.form.get("ingredients"),
+            "method": request.form.get("method"),
             "is_urgent": is_urgent,
             "due_date": request.form.get("due_date"),
             "created_by": session["user"]
@@ -213,6 +217,7 @@ def display_ingredients(ingredients_id):
     recipes_in_category = mongo.db.recipes.find({"_id": ObjectId(ingredients_id)})
     ingredients = recipes_in_category.ingredients.split(',')
     print(ingredients)
+   # "ingredients": request.form.get("ingredients").split(','),
     return render_template("display_recipe.html", ingredients = ingredients_in_recipe)
     return render_template("category.html", ingredients = ingredients_in_recipe)
 

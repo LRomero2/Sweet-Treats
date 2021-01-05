@@ -1,8 +1,9 @@
 {% block content %}
 
-<h3>  {{ recipe.recipe_name }} </h3>
 
-{% for recipe in recipes %}
+<h3>{{ recipe.recipe_name }}</h3>
+
+
  <div class="container">
           <ul class="collapsible">
     <li>
@@ -23,8 +24,5 @@
     </li>
     </ul>
       </div>
-
-{% endfor %}
-
 
 {% endblock %}
