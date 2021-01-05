@@ -205,7 +205,16 @@ def display_category(category_name):
 @app.route("/display_recipe/<recipe_id>")
 def display_recipe(recipe_id):
       recipes_in_category = mongo.db.recipes.find({"_id": ObjectId(recipe_id)})
-      return render_template("display_recipe.html", recipe = recipe_in_category)
+      return render_template("display_recipe.html", recipe = recipes_in_category)
+
+
+@app.route("/display_ingredients/<ingredients_id>")
+def display_ingredients(ingredients_id):
+    recipes_in_category = mongo.db.recipes.find({"_id": ObjectId(ingredients_id)})
+    ingredients = recipes_in_category.ingredients.split(',')
+    print(ingredients)
+    return render_template("display_recipe.html", ingredients = ingredients_in_recipe)
+    return render_template("category.html", ingredients = ingredients_in_recipe)
 
 
 

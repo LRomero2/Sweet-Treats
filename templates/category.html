@@ -11,14 +11,12 @@
                     {{ recipe.recipe_name }}
                 </span>
                 <p>Ingredients:
-                    {% for ingredients in recipe %}
-                        {{ recipe.recipe_ingredients }}
-                    {% endfor %}
+                    {{ recipe.ingredients }}
                 </p>
             </div>
             <div class="card-action">
-                <a href="{{ url_for('display_recipe', recipe_id=recipe._id)}}">Show me the Method</a>
-                <a href="https://www.amazon.co.uk/ref=nav_logo">Buy the Ingredients</a>
+                <a href="{{ url_for('display_recipe', recipe_id=recipe._id)}}">Show the Method</a>
+                <a href="https://www.amazon.co.uk/ref=nav_logo" target="_blank">Buy the Ingredients</a>
             </div>
         </div>
     </div>
