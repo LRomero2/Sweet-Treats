@@ -196,10 +196,10 @@ def delete_category(category_id):
     return redirect(url_for("get_categories"))
 
 
-@app.route("/view_category/<category_name>")
+@app.route("/display_category/<category_name>")
 def display_category(category_name):
-      recipes_in_cat = mongo.db.recipes.find({"category": category_name})
-      return render_template("category.html", recipes = recipes_in_cat)
+      recipes_in_category = mongo.db.recipes.find({"category": category_name})
+      return render_template("category.html", recipes = recipes_in_category)
 
 
 if __name__ == "__main__":
