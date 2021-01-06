@@ -112,6 +112,7 @@ def logout():
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
     if request.method == "POST":
+        print (request.form)
         is_urgent = "on" if request.form.get("is_urgent") else "off"
         recipe = {
             "category_name": request.form.get("category_name"),
@@ -202,13 +203,16 @@ def delete_category(category_id):
 
 @app.route("/display_category/<category_name>")
 def display_category(category_name):
-      recipes_in_category = mongo.db.recipes.find({"category_name": category_name})
-      return render_template("category.html", recipes = recipes_in_category)
+    recipes_in_category = mongo.db.recipes.find({"category_name": category_name})
+    for recipe in recipes_in_category:
+      if recipe.ingredients:
+        recipe.ingredients = recipe.ingredients.split(',')
+    return render_template("category.html", recipes = recipes_in_category)
 
 
 @app.route("/display_recipe/<recipe_id>")
 def display_recipe(recipe_id):
-      recipes_in_category = mongo.db.recipes.find({"_id": ObjectId(recipe_id)})
+      recipes_in_category = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
       return render_template("display_recipe.html", recipe = recipes_in_category)
 
 
@@ -217,7 +221,6 @@ def display_ingredients(ingredients_id):
     recipes_in_category = mongo.db.recipes.find({"_id": ObjectId(ingredients_id)})
     ingredients = recipes_in_category.ingredients.split(',')
     print(ingredients)
-   # "ingredients": request.form.get("ingredients").split(','),
     return render_template("display_recipe.html", ingredients = ingredients_in_recipe)
     return render_template("category.html", ingredients = ingredients_in_recipe)
 

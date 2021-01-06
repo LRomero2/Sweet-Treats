@@ -9,16 +9,19 @@
     <li>
       <div class="collapsible-header"><i class="fas fa-cookie-bite" ></i>Ingredients:</div>
       <div class="collapsible-body">
-                <span>{% for ingredients in recipe %}
-                        {{ recipe.recipe_ingredients }}
+                <span> 
+                    <ul> 
+                        {% for ingredient in recipe.ingredients %}
+                          <li>{{ ingredient }}</li>
                         {% endfor %}
+                    </ul> 
                 </span></div>
     </li>
     <li class="active">
       <div class="collapsible-header"><i class="fas fa-blender"></i>Method</div>
       <div class="collapsible-body">
-          <span>{% for method in recipe %}
-                        {{ recipe.recipe_method }}
+          <span>{% for method in recipe.method %}
+                        {{ method }}
                         {% endfor %}
                     </span></div>
     </li>
