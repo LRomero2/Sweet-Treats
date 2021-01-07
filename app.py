@@ -203,17 +203,20 @@ def delete_category(category_id):
 
 @app.route("/display_category/<category_name>")
 def display_category(category_name):
-    recipes_in_category = mongo.db.recipes.find({"category_name": category_name})
+    recipes_in_category = list(mongo.db.recipes.find({"category_name": category_name}))
     for recipe in recipes_in_category:
-      if recipe.ingredients:
-        recipe.ingredients = recipe.ingredients.split(',')
+      if 'ingredients' in recipe:
+        recipe["ingredients"] = recipe["ingredients"].split(',')
     return render_template("category.html", recipes = recipes_in_category)
 
 
 @app.route("/display_recipe/<recipe_id>")
 def display_recipe(recipe_id):
-      recipes_in_category = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-      return render_template("display_recipe.html", recipe = recipes_in_category)
+    for recipe in recipes_in_category:
+       if 'ingredients' in recipe:
+        recipe["ingredients"] = recipe["ingredients"].split(',')
+        recipes_in_category = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    return render_template("display_recipe.html", recipe = recipes_in_category)
 
 
 @app.route("/display_ingredients/<ingredients_id>")
