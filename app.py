@@ -228,7 +228,7 @@ def display_ingredients(ingredients_id):
     return render_template("category.html", ingredients = ingredients_in_recipe)
 
 
-@app.route("/display_favourites/<favourites_id>")
+@app.route("/profile/<favourites_id>")
 def display_favourites(favourites_id):
     if request.favourite == "POST":
         category = {

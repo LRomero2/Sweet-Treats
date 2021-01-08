@@ -107,7 +107,7 @@
   </div>
         {% for recipe in recipes %}
         <li>
-            <div class="collapsible-header white-text light-blue darken-4 text-shadow">
+            <div class="collapsible-header black-text orange lighten-3">
                 <div class="col s3">
                     <i class="fas fa-caret-down"></i>
                      {% if session.user|lower == recipe.created_by|lower %}
@@ -118,7 +118,7 @@
                 <div class="col s9">
                     <strong>{{ recipe.recipe_name }}</strong> : {{ recipe.due_date }}
                     {% if recipe.is_urgent == "on" %}
-                        <i class="fas fa-star light-blue-text text-lighten-2 tooltipped"
+                        <i class="fas fa-star yellow-text text-shadow tooltipped"
                             data-position="right" data-tooltip="I'm a Favourite"></i>
                 {% endif %}
                 </div>
