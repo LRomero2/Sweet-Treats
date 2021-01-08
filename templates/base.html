@@ -21,8 +21,8 @@
 
 
     <!---Top Navbar--->
-   	<nav class="nav-extended text-shadow orange lighten-3">
-			<div class="nav-wrapper">
+   	<nav class="nav-extended text-shadow grey darken-3">
+			<div class="nav-wrapper orange-text">
                    <!------<form>
         <div class="input-field">
           <input id="search" type="search" required>
@@ -32,7 +32,21 @@
       </form>---------->
 				<a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
 				<ul class="right hide-on-med-and-down">
-					<li><a href="{{ url_for('get_recipes') }}">Home</a></li>
+                    <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
+                    <!-- Dropdown Trigger -->
+                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Recipes<i class="material-icons right">arrow_drop_down</i></a></li>
+   
+                    <!-- Dropdown Structure -->
+                    <ul id="dropdown1" class="dropdown-content grey darken-3 orange-text">
+                        <li><a href="{{ url_for('display_category', category_name='sweet_breads')}}">Sweet Breads</a></li>
+                        <li><a href="{{ url_for('display_category', category_name='drinks_moussepots')}}">Drinks & Mousse Pots</a></li>
+                        <li><a href="{{ url_for('display_category', category_name='cakes_puddings')}}">Cakes & Puddings</a></li>
+                        <li><a href="{{ url_for('display_category', category_name='sweet_pies')}}">Sweet Pies</a></li>
+                         <li><a href="{{ url_for('display_category', category_name='cookies_biscuits')}}">Cookies & Biscuits</a></li>
+                        <li><a href="{{ url_for('display_category', category_name='icecreams_sorbets')}}">Ice Creams & Sorbets</a></li>
+                        <li><a href="{{ url_for('display_category', category_name='pastries')}}">Pastries</a></li>
+                        <li><a href="{{ url_for('display_category', category_name='truffles_candies')}}">Truffles & Candies</a></li>
+                    </ul>
                     {% if session.user %}
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                         <li><a href="{{ url_for('add_recipe') }}">New Recipe</a></li>
@@ -63,6 +77,20 @@
   </nav>
             <li><h4 class="center-align grey-text text-darken 1">Manage Recipes</h4></li>
              <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
+                 <!-- Dropdown Trigger -->
+                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Recipes<i class="material-icons right">arrow_drop_down</i></a></li>
+   
+                    <!-- Dropdown Structure -->
+                    <ul id="dropdown2" class="dropdown-content grey darken-3 orange-text">
+                        <li><a href="{{ url_for('display_category', category_name='sweet_breads')}}">Sweet Breads</a></li>
+                        <li><a href="{{ url_for('display_category', category_name='drinks_moussepots')}}">Drinks & Mousse Pots</a></li>
+                        <li><a href="{{ url_for('display_category', category_name='cakes_puddings')}}">Cakes & Puddings</a></li>
+                        <li><a href="{{ url_for('display_category', category_name='sweet_pies')}}">Sweet Pies</a></li>
+                         <li><a href="{{ url_for('display_category', category_name='cookies_biscuits')}}">Cookies & Biscuits</a></li>
+                        <li><a href="{{ url_for('display_category', category_name='icecreams_sorbets')}}">Ice Creams & Sorbets</a></li>
+                        <li><a href="{{ url_for('display_category', category_name='pastries')}}">Pastries</a></li>
+                        <li><a href="{{ url_for('display_category', category_name='truffles_candies')}}">Truffles & Candies</a></li>
+                    </ul>
             {% if session.user %}
                 <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                 <li><a href="{{ url_for('add_recipe') }}">New Recipe</a></li>
@@ -98,21 +126,20 @@
 
     <footer class="page-footer orange lighten-2">
           <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text text-shadow">Footer Content</h5>
-                <p class="grey-text text-darken-2">You can use rows and columns here to organize your footer content.</p>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text text-shadow">Links</h5>
-                <ul>
-                  <li><a class="grey-text text-darken-2" href="#!">Utensils we like</a></li>
-                  <li><a class="grey-text text-darken-2" href="#!">Inspiration</a></li>
-                  <li><a class="grey-text text-darken-2" href="#!">Quick recipe videos</a></li>
-                  <li><a class="grey-text text-darken-2" href="#!">Explore more</a></li>
-                </ul>
-              </div>
-            </div>
+    <div class="row">
+<div class="col s4">
+          <i class="medium material-icons">local_dining</i>
+        <h5>Utensils we like</h5>
+      </div>
+      <div class="col s4">
+           <i class="medium material-icons">local_movies</i>
+       <h5>Quick recipe videos</h5>
+      </div>
+      <div class="col s4">
+          <i class="medium material-icons">cloud_circle</i>
+         <h5>Inspiration</h5>
+      </div>
+    </div>
           </div>
           <div class="footer-copyright">
             <div class="container">

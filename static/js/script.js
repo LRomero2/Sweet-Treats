@@ -49,4 +49,5 @@ $(document).ready(function () {
     $('.collapsible').collapsible();
   });
   
-    $('.dropdown-trigger').dropdown();
+$('.dropdown-trigger').dropdown();
+

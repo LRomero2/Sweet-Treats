@@ -212,10 +212,10 @@ def display_category(category_name):
 
 @app.route("/display_recipe/<recipe_id>")
 def display_recipe(recipe_id):
-    for recipe in recipes_in_category:
-       if 'ingredients' in recipe:
-        recipe["ingredients"] = recipe["ingredients"].split(',')
-        recipes_in_category = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    recipes_in_category = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    # for recipe in recipes_in_category:
+    #     if 'ingredients' in recipe:
+    #         recipe["ingredients"] = recipe["ingredients"].split(',')
     return render_template("display_recipe.html", recipe = recipes_in_category)
 
 

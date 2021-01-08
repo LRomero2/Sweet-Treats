@@ -1,40 +1,37 @@
 {% extends "base.html" %}
 {% block content %}
 
- <nav>
-    <div class="nav-wrapper">
-      <div class="col s12">
-        <a href="recipes.html" class="breadcrumb">Recipes</a>
-        <a href="#!" class="breadcrumb">whichever page i cam from</a>
-      </div>
-    </div>
-  </nav>
 
 <h3>{{ recipe.recipe_name }}</h3>
 
 
- <div class="container">
-          <ul class="collapsible">
-    <li>
-      <div class="collapsible-header"><i class="fas fa-cookie-bite" ></i>Ingredients:</div>
+<div class="container">
+    <ul class="collapsible">
+    <li class="active">
+      <div class="collapsible-header"><i class="fas fa-cookie-bite" ></i>Ingredients</div>
       <div class="collapsible-body">
                 <span> 
                     <ul> 
-                        {% for ingredient in recipe.ingredients %}
+                        {% for ingredient in recipe.ingredients.splitlines() %}
                           <li>{{ ingredient }}</li>
                         {% endfor %}
                     </ul> 
-                </span></div>
+                </span>
+            </div>
     </li>
-    <li class="active">
-      <div class="collapsible-header"><i class="fas fa-blender"></i>Method</div>
-      <div class="collapsible-body">
-          <span>{% for method in recipe.method %}
-                        {{ method }}
+    <li>
+        <div class="collapsible-header"><i class="fas fa-blender"></i>Click Here For The Method</div>
+        <div class="collapsible-body">
+            <span>
+                <ol> 
+                        {% for method in recipe.method.splitlines() %}
+                          <li> {{ method }}</li>
                         {% endfor %}
-                    </span></div>
+                </ol> 
+            </span>
+        </div>
     </li>
     </ul>
-      </div>
+</div>
 
 {% endblock %}
