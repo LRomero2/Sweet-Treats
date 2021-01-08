@@ -228,6 +228,18 @@ def display_ingredients(ingredients_id):
     return render_template("category.html", ingredients = ingredients_in_recipe)
 
 
+@app.route("/display_favourites/<favourites_id>")
+def display_favourites(favourites_id):
+    if request.favourite == "POST":
+        category = {
+            "recipe_name": request.form.get("recipe_name")
+        }
+        mongo.db.recipes.insert_one(recipe)
+    favourites_in_category = mongo.db.recipes.find_one({"_id": ObjectId(favourites_id)})
+    return render_template("profile.html", favourites = favourites_in_category)
+
+
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
