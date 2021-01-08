@@ -13,23 +13,10 @@
     <title>Sweet Treats Recipe Book</title>
 </head>
 <body>
-
 <header>
-<div class="col s12" id="landing-image">
-    <img class="responsive-img" src="https://browser-d0d4bab4-3203-42f7-9427-2507f859b0d3.ws-eu03.gitpod.io/workspace/Sweet-Treats/static/imgs/newlandingpagebackground.jpg">
-</div>
-
-
     <!---Top Navbar--->
-   	<nav class="nav-extended text-shadow grey darken-3">
+   	<nav class="nav-extended text-shadow black">
 			<div class="nav-wrapper orange-text">
-                   <!------<form>
-        <div class="input-field">
-          <input id="search" type="search" required>
-          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-          <i class="material-icons">close</i>
-        </div>
-      </form>---------->
 				<a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
 				<ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
@@ -60,7 +47,8 @@
                     {% endif %}
 				</ul>
 			</div>
-		</nav>
+        </nav>
+       
  <!---Mobile Side Navbar--->
     
  <ul class="sidenav" id="mobile-demo">
@@ -102,8 +90,29 @@
                 <li><a href="{{ url_for('login') }}">Log In</a></li>
                 <li><a href="{{ url_for('register') }}">Register</a></li>
             {% endif %}
-		</ul>
-         
+        </ul>
+        <div id="landing-image" class="img-gradient">
+    <img class="responsive-img" src="https://browser-d0d4bab4-3203-42f7-9427-2507f859b0d3.ws-eu03.gitpod.io/workspace/Sweet-Treats/static/imgs/newlandingpagebackground.jpg">
+        </div>
+ <div class="container">
+     <h3 id="title" class="center-align">Sweet Treats</h3>
+<div id="tab-search" class="row card-panel  orange lighten-4">
+        <form class="search-bar" action="{{ url_for('search') }}" method="post" class="col s12">
+            <div class="row valign-wrapper center-align">
+                <div class="input-field col s12 m8">
+                    <input type="text" name="query" id="query" minlength="3" class="validate" required>
+                    <label for="query">Search Recipes</label>
+                </div>
+                <div class="col s12 m4">
+                    <a href="{{ url_for('get_recipes') }}" class="grey btn text-shadow">Reset</a>
+                    <button type="submit" class="blue lighten-3 btn text-shadow">
+                        <i class="fas fa-search left"></i> Search
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 </header>
 
 <section>
@@ -124,7 +133,7 @@
   {% endblock %}
 </main>
 
-    <footer class="page-footer orange lighten-2">
+    <footer id="gradient" class="page-footer black">
           <div class="container">
     <div class="row">
 <div class="col s4 text-shadow">
@@ -141,11 +150,18 @@
       </div>
     </div>
           </div>
-          <div class="footer-copyright">
-            <div class="container">
-            © 2021 Copyright
-            </div>
-          </div>
+
+<div id="footer-badges" class="container offset-s6">
+ <div class="col s4">
+     <a href="http://www.facebook.com/" target="_blank"
+                  ><i class="fab fa-facebook-square"></i
+                ></a> <a href="http://www.instagram.com/" target="_blank"
+                  ><i class="fab fa-instagram-square ml-4"></i
+                ></a> <a href="http://www.twitter.com/" target="_blank"
+                  ><i class="fab fa-twitter-square ml-4"></i
+                ></a>  
+      </div>
+       </div>
         </footer>
 
   <script src="https://code.jquery.com/jquery-3.5.1.min.js" 
