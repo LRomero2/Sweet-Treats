@@ -42,6 +42,13 @@ font-weight: 200;
 color:rgb(110, 109, 109);
 }
 
+h4{
+font-family: 'Great Vibes', cursive;
+font-size: 80px;
+font-weight: 200;
+color:black;  
+}
+
 .search-bar{
 height:50px;
 }
@@ -65,3 +72,6 @@ height:50px;
     margin:5px;
 }
 
+.dropdown-content li>a, .dropdown-content li>span {
+    color: #ffab40;
+}
