@@ -6,15 +6,15 @@
 
 <div class="row">
     <div class="col s12 m6">
-        <div class="card blue-grey darken-1">
+        <div class="card yellow lighten-4">
             <div class="card-content white-text">
                 <span class="card-title">
-                    {{ recipe.recipe_name }}
+      {{ recipe.recipe_name }}
                 </span>
-                <p>Ingredients:
+                <p class="ing-rec">Ingredients:
                     <ul> 
                         {% for ingredient in recipe.ingredients %}
-                          <li>{{ ingredient }}</li>
+                         <li class="ing-rec">{{ ingredient }}</li>
                         {% endfor %}
                     </ul> 
                 </p>
