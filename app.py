@@ -95,10 +95,11 @@ def profile(username):
         {"username": session["user"]})["username"]
 
     if session["user"]:
-        return render_template("profile.html", username=username)
-
+        recipes = list(mongo.db.recipes.find())
+        return render_template("profile.html", recipes=recipes, username=username)
+    
     return redirect(url_for("login"))
-
+   
 
 @app.route("/logout")
 def logout():
@@ -228,15 +229,15 @@ def display_ingredients(ingredients_id):
     return render_template("category.html", ingredients = ingredients_in_recipe)
 
 
-@app.route("/profile/<favourites_id>")
-def display_favourites(favourites_id):
-    if request.favourite == "POST":
-        category = {
-            "recipe_name": request.form.get("recipe_name")
-        }
-        mongo.db.recipes.insert_one(recipe)
-    favourites_in_category = mongo.db.recipes.find_one({"_id": ObjectId(favourites_id)})
-    return render_template("profile.html", favourites = favourites_in_category)
+#@app.route("/profile/<is_urgent_id>")
+#def display_is_urgent(is_urgent_id):
+  #  if request.is_urgent == "POST":
+      #  category = {
+       #     "is_urgent_name": request.form.get("is_urgent_name")
+       # }
+       # mongo.db.recipes.insert_one(recipe)
+  #  is_urgent_in_category = mongo.db.recipes.find_one({"_id": ObjectId(is_urgent_id)})
+  #  return render_template("profile.html", is_urgent = is_urgent_in_category)
 
 
 

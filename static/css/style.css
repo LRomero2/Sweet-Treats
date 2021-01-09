@@ -154,3 +154,12 @@ height:50px;
 .copyright{
     font-size: 12px;
 }
+
+#method-list{
+    background-color: rgba(167, 164, 164, 0.315);
+}
+
+.recipe-name{
+    color:orange;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.596);
+}

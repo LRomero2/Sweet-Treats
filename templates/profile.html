@@ -10,68 +10,19 @@
             </div>
         </div>
     </div>
-    <h6>Hey, {{ username }}. Here are your Favourites.</h6>
-    
-    <div class="row card-panel grey lighten-5">
-        <form class="search-bar" action="{{ url_for('search') }}" method="post" class="col s12">
-            <div class="row valign-wrapper center-align">
-                <div class="input-field col s12 m8">
-                    <i class="fas fa-search prefix light-blue-text text-darken-4"></i>
-                    <input type="text" name="query" id="query" minlength="3" class="validate" required>
-                    <label for="query">Search Recipes</label>
-                </div>
-                <div class="col s12 m4">
-                    <a href="{{ url_for('get_recipes') }}" class="red btn text-shadow">Reset</a>
-                    <button type="submit" class="light-blue darken-1 btn text-shadow">
-                        <i class="fas fa-search left"></i> Search
-                    </button>
-                </div>
-            </div>
-        </form>
-    </div>
-
-{% for favourites in recipes %}
-
-<div class="row">
-    <div class="col s12 m6">
-        <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-                <span class="card-title">
-                    {{ recipe.recipe_name }}
-                </span>
-                <p>Ingredients:
-                    <ul> 
-                        {% for ingredient in recipe.ingredients %}
-                          <li>{{ ingredient }}</li>
-                        {% endfor %}
-                    </ul> 
-                </p>
-            </div>
-            <div class="card-action">
-                <a href="{{ url_for('display_recipe', recipe_id=recipe._id)}}">Show the Method</a>
-                <a class="dropdown-trigger orange darken-1 btn" href="#" data-target="dropdown3">Buy the Ingredients</a>
- <ul id="dropdown3" class="dropdown-content">
-    <li><a href="https://www.amazon.co.uk/ref=nav_logo" target="_blank"><img class="logo" src="https://browser-d0d4bab4-3203-42f7-9427-2507f859b0d3.ws-eu03.gitpod.io/workspace/Sweet-Treats/static/imgs/amazonimage.png" alt="amazon_logo">Amazon</a></li>
-    <li><a href="https://www.tesco.com/" target="_blank"><img class="logo" src="https://browser-d0d4bab4-3203-42f7-9427-2507f859b0d3.ws-eu03.gitpod.io/workspace/Sweet-Treats/static/imgs/tescologo.jpg" alt="tesco_logo">Tesco</a></li>
-  </ul>
-          </div>      
-        </div>
-    </div>
-</div>
-
-{% endfor %}
-
-
-
+    <h6>Hey, {{ username }}. Here is a Full Index of Our Recipes.</h6>
+   
 {% if recipes|length > 0 %}
-<ul class="collapsible popout">
+
+
+    <ul class="collapsible popout">
   <div class="row">
     <div class="col s12 m7">
     </div>
   </div>
         {% for recipe in recipes %}
         <li>
-            <div class="collapsible-header white-text light-blue darken-4 text-shadow">
+            <div class="collapsible-header black-text orange lighten-3">
                 <div class="col s3">
                     <i class="fas fa-caret-down"></i>
                      {% if session.user|lower == recipe.created_by|lower %}
@@ -82,7 +33,7 @@
                 <div class="col s9">
                     <strong>{{ recipe.recipe_name }}</strong> : {{ recipe.due_date }}
                     {% if recipe.is_urgent == "on" %}
-                        <i class="fas fa-star light-blue-text text-lighten-2 tooltipped"
+                        <i class="fas fa-star yellow-text text-shadow tooltipped"
                             data-position="right" data-tooltip="I'm a Favourite"></i>
                 {% endif %}
                 </div>
@@ -90,14 +41,15 @@
             <div class="collapsible-body">
                 <strong>{{ recipe.category_name }}</strong>
                 <p>{{ recipe.recipe_description }}</p>
-                <p><em>By: {{ recipe.created_by }}</em></p>
+                <p><em>by: {{ recipe.created_by }}</em></p>
             </div>
         </li>
         {% endfor %}
     </ul>
      {% else %}
-        <h3 class="red-text text-darken-4 center-align">No Results Found</h3>
+
 {% endif %}
+</div>
 
 
 {% endblock %}
