@@ -190,3 +190,7 @@ a{
     text-decoration: none;
     color: white;
 }
+
+#search-button{
+    width:130px;
+}
