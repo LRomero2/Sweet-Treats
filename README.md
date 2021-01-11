@@ -99,45 +99,39 @@ https://balsamiq.com/wireframes/desktop/
 
 
 > ## Testing 🧮
-I have thouroughly checked all pages and their functionality on my laptop while writing the code and also after deployment on my phone and tablet.
+* I have thouroughly checked all pages and their functionality on my laptop while writing the code and also after deployment on my phone and tablet.
 
-I have used validators to validate my CSS code. I used this program:
+* I have used validators to validate my CSS code. I used this program:
 https://validator.w3.org/#validate_by_input
 
 I have tested my JQuery by .........................
 
 
-I tested the funcionality of the navbar on the home page on a laptop and mobile device by clicking on each and every page to check the link 
+* I tested the funcionality of the navbar on the home page on a laptop and mobile device by clicking on each and every page to check the link 
 to the page works properly. On the home page I also tested the footer links by clicking on them and each link opens a new tab to view the page
 as well as each icon to social media pages.
 
-To test the register functionality for a new user, I left the input fields empty and they would not submit the information as I programmed
+* To test the register functionality for a new user, I left the input fields empty and they would not submit the information as I programmed
 a minimum character reuirement for the name and password. The JQuery is used to show that the field needs to be filled in.
 
-To test the log in functionality, I typed a correct name but the wrong password and the log in was not sucessful. Then I typed in the wrong 
+* To test the log in functionality, I typed a correct name but the wrong password and the log in was not sucessful. Then I typed in the wrong 
 name but correct password and it still didn't work. This all worked well and only opened a profile when the correct credentials were entered.
 
 
-I tested the delete functionality a lot as I was developing the app to make sure they had actually been erased from not only the app as it 
+* I tested the delete functionality a lot as I was developing the app to make sure they had actually been erased from not only the app as it 
 is seen but also on Monogdb. I clicked on delete on a recipe, then clicked yes when the pop up modal asked me if i really wanted to delete it.
 When it redirected me back to the profile page, I could see that it had been deleted. To make sure that it had also been deleted on Monogdb 
 I logged into my account there and went to my cluster, then collections and I could see that it had also been deleted on mongodb.
 
-I tested the edit and add functionality in the same way I tested the delete functionality. First I added or edited on the app itself as a user
+* I tested the edit and add functionality in the same way I tested the delete functionality. First I added or edited on the app itself as a user
 would, then I went to Monogdb to check that the data had been added or edited there.
 
-I checked the video worked on the home page by playing it within the app and also playing it on a mobile device to make sure it was responsive.
+* I checked the video worked on the home page by playing it within the app and also playing it on a mobile device to make sure it was responsive.
 
-Then I checked the search bar. To do this I typed a word and then clicked reset to make sure the search reset itself. After that I typed a word
+* Then I checked the search bar. To do this I typed a word and then clicked reset to make sure the search reset itself. After that I typed a word
 from a recipe such as 'chocolate', then all the recipes that has that ingredient in the title displayed itself.
 
-Finally, I checked all the categories and recipes to make sure that the recipes had been placed into the correct categories. 
-
-
-
-
-You should also mention in this section any interesting bugs or problems you discovered during your testing, 
-even if you haven't addressed them yet.
+* Finally, I checked all the categories and recipes to make sure that the recipes had been placed into the correct categories. 
 
 
 
