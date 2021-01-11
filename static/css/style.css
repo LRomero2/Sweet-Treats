@@ -36,6 +36,13 @@
   background-size: cover;
 }
 
+@media only screen and (max-width: 600px) {
+#landing-image {
+    background-size: cover;
+    width: 100%;
+  }
+}
+
 .img-gradient{
   position:relative;
   display:inline-block;
