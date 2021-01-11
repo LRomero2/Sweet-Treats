@@ -55,11 +55,6 @@
       <nav class="orange lighten-2">
     <div class="nav-wrapper">
       <form>
-        <div class="input-field">
-          <input id="search" type="search" required>
-          <label class="label-icon" for="search"><i class="large material-icons">search</i></label>
-          <i class="material-icons">close</i>
-        </div>
       </form>
     </div>
   </nav>
@@ -98,13 +93,13 @@
      <h3 id="title" class="center-align">Sweet Treats</h3>
  </div>
 <div id="tab-search" class="row card-panel col s12 m8 white">
-        <form id="search-bar" action="{{ url_for('search') }}" method="post" class="col s12 m8">
+        <form id="search-bar" action="{{ url_for('search') }}" method="post">
             <div class="row valign-wrapper center-align">
-                <div class="input-field col s12 m8">
+                <div class="input-field">
                     <input type="text" name="query" id="query" minlength="3" class="validate" required>
                     <label for="query">Search Recipes</label>
                 </div>
-                <div class="col s12 m4">
+                <div>
                     <a href="{{ url_for('get_recipes') }}" class="blue darken-2 btn text-shadow">Reset</a>
                     <button type="submit" class="orange lighten-2 btn text-shadow" id="search-button">
                         <i class="fas fa-search left"></i> Search</button>
