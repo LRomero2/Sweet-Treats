@@ -214,9 +214,6 @@ def display_category(category_name):
 @app.route("/display_recipe/<recipe_id>")
 def display_recipe(recipe_id):
     recipes_in_category = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    # for recipe in recipes_in_category:
-    #     if 'ingredients' in recipe:
-    #         recipe["ingredients"] = recipe["ingredients"].split(',')
     return render_template("display_recipe.html", recipe = recipes_in_category)
 
 
@@ -227,18 +224,6 @@ def display_ingredients(ingredients_id):
     print(ingredients)
     return render_template("display_recipe.html", ingredients = ingredients_in_recipe)
     return render_template("category.html", ingredients = ingredients_in_recipe)
-
-
-#@app.route("/profile/<is_urgent_id>")
-#def display_is_urgent(is_urgent_id):
-  #  if request.is_urgent == "POST":
-      #  category = {
-       #     "is_urgent_name": request.form.get("is_urgent_name")
-       # }
-       # mongo.db.recipes.insert_one(recipe)
-  #  is_urgent_in_category = mongo.db.recipes.find_one({"_id": ObjectId(is_urgent_id)})
-  #  return render_template("profile.html", is_urgent = is_urgent_in_category)
-
 
 
 
