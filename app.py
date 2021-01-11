@@ -31,7 +31,10 @@ def get_recipes():
 def search():
     query = request.form.get("query")
     recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
-    return render_template("profile.html", recipes=recipes)
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    return render_template("profile.html", recipes=recipes, username=username)
 
 
 @app.route("/register", methods=["GET", "POST"])
