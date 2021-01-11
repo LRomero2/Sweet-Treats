@@ -51,7 +51,7 @@
 .img-gradient:after {
   content:'';
   position:absolute;
-  left:0; top:0;
+  top:0;
   width:100%; 
   height:100%;
   display:inline-block;
@@ -65,11 +65,11 @@
 #title{  
   position: absolute;
   top: 25%;
-  left: 50%;
+  left: 47%;
   transform: translate(-50%, -50%);
 color:orange;
 text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.596);
-font-size: 110px;
+font-size: 100px;
 }
 
 .rec-month{
@@ -164,8 +164,20 @@ height:50px;
 #tab-search{
     position: absolute;
   top: 50%;
-  left: 50%;
+  left: 47%;
   transform: translate(-50%, -50%);
+}
+
+@media only screen and (max-width: 600px) {
+#tab-search {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+.search-buttons {
+   margin:2px;
+  }
 }
 
 .copyright{
