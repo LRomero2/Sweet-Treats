@@ -77,6 +77,13 @@ color:rgba(240, 56, 0, 0.918);
 text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.596);
 }
 
+@media only screen and (max-width: 600px) {
+.rec-month {
+    font-size: 80px;
+}
+}
+
+
 h3 {
 font-family: 'Great Vibes', cursive;
 font-size: 80px;
@@ -170,13 +177,20 @@ height:50px;
 
 @media only screen and (max-width: 600px) {
 #tab-search {
-    width: 90%;
+    width: 80%;
+    margin:2px;
+    left:48%;
   }
 }
 
+.input-field{
+   width: 90%;
+}
+
 @media only screen and (max-width: 600px) {
-.search-buttons {
-   margin:2px;
+#search-buttons {
+    padding:3px;
+    margin-inline: 43px;
   }
 }
 
@@ -216,4 +230,10 @@ a{
 
 .video-container{
     margin-bottom:2px;
+}
+
+@media only screen and (max-width: 600px) {
+.video-container {
+    width:90%;
+}
 }
