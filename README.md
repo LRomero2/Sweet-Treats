@@ -42,9 +42,15 @@ This option is only available to the user who first added the recipe.
 * As the Admin of the app, I can add and delete categories by clicking on 'Manage Categories', 
 then selecting the category I want and click on 'Delete'. 'Edit'. Or I can 'Add a new Category'.
 
+Here are the wireframes for the desktop and mobile view of the app.
+<img src="https://browser-d0d4bab4-3203-42f7-9427-2507f859b0d3.ws-eu03.gitpod.io/workspace/Sweet-Treats/static/wireframes/recipehomepagedesktopview.png" style="margin: 0;">
 
+<img src="https://browser-d0d4bab4-3203-42f7-9427-2507f859b0d3.ws-eu03.gitpod.io/workspace/Sweet-Treats/static/wireframes/recipehomepagemobileview.png" style="margin: 0;">
 
-This section is also where you would share links to any wireframes, These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
+Here are the wireframes for the recipe page and the category page.
+
+<img src="https://browser-d0d4bab4-3203-42f7-9427-2507f859b0d3.ws-eu03.gitpod.io/workspace/Sweet-Treats/static/wireframes/recipecardwireframedesktopview.png" style="margin: 0;">
+<img src="https://browser-d0d4bab4-3203-42f7-9427-2507f859b0d3.ws-eu03.gitpod.io/workspace/Sweet-Treats/static/wireframes/displayrecipepagedesktop.png" style="margin: 0;">
 
 > # Features 🔎
 ## Existing Features
@@ -107,8 +113,10 @@ https://balsamiq.com/wireframes/desktop/
 * I have used validators to validate my CSS code. I used this program:
 https://validator.w3.org/#validate_by_input
 
-I have tested my JQuery by .........................
 
+* I have tested the JQuery by deleting some code, adding in code that will not work and see how it effects the functionality.
+This was an ongoing process when I was debugging my code. Forntunately I have now debugged it all and it is all working as I want it to.
+This wasn't too difficult this time as I used snippets of JQuery from Materialize CSS, the JQuery was quite simple and easy to work with.
 
 * I tested the funcionality of the navbar on the home page on a laptop and mobile device by clicking on each and every page to check the link 
 to the page works properly. On the home page I also tested the footer links by clicking on them and each link opens a new tab to view the page
@@ -149,16 +157,16 @@ Different configuration files?
 Separate git branch?
 In addition, if it is not obvious, you should also describe how to run your code locally.
 
-> ## Credits
+> # Credits
 
-> ## Content 📖
+ ## Content 📖
 Most of the app.py and env.py was imitated from Code Institutes tutorial video for a mini project. I used the sme principles to make this project,
 then I tweaked it to fit my needs for the app and added extra content and styling.
 
-> ## Media 🎞️
+ ## Media 🎞️
 The photos used in this site were obtained from google.
 
-> ## Acknowledgements 🙏
+ ## Acknowledgements 🙏
 I received inspiration for this project from great recipe apps that are already out there! There are a lot of changes I will make to this 
 project in the future but I kept it simple for now as I have a deadline for my project. I'm looking forward to going back and making great 
 changes and developments to my app in the near future.
