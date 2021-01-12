@@ -1,7 +1,8 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
 README.md
-
 # Sweet Treats 🧁
+
+<img src="https://browser-d0d4bab4-3203-42f7-9427-2507f859b0d3.ws-eu03.gitpod.io/workspace/Sweet-Treats/static/imgs/thirdprojectscreenshot.jpg" style="margin: 0;">
+
 This project was an experiment to try and work with a database such as mongodb and python. This is my first attempt at 
 building an app with different languages and frameworks like this so i decided to keep it simple. 
 I chose to build a recipe app for users to add, edit, delete and view recipes (otherwise known as CRUD functionality)
@@ -38,6 +39,8 @@ This option is only available to the user who first added the recipe.
 
 * As a user who does not have an account, I can click the 'Register an account' link and make an account to use the app.
 
+* As the Admin of the app, I can add and delete categories by clicking on 'Manage Categories', 
+then selecting the category I want and click on 'Delete'. 'Edit'. Or I can 'Add a new Category'.
 
 
 
