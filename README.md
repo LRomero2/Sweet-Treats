@@ -45,7 +45,7 @@ then selecting the category I want and click on 'Delete'. 'Edit'. In addition, I
 Please see the link to the wireframe folder to view the wireframes. I included a link instead of the images within this README.md
 because the images are very large. Within the folder you will find the images for the wireframes for a desktop and mobile view of
 the landing page along with an example of a category page within the app and a recipe page.
-Please see the folder here:[static/wireframes](static/wireframes)
+Please see the folder here [static/wireframes](static/wireframes)
 
 ## Five planes of UX
 
@@ -173,20 +173,52 @@ from a recipe such as 'chocolate', then all the recipes that has that ingredient
 
 
 > ## Deployment 💻
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
+For this project, I used Github to create a repository using a template provided to me by Code Institute. 
+When created, I used Gitpod to write my code for the app.I saved my work and after each major change or addition to the project
+I pushed it to Github to be stored. When I finished the project I deployed it to Heroku using the following process:
 
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
 
-Different values for environment variables (Heroku Config Vars)?
-Different configuration files?
-Separate git branch?
-In addition, if it is not obvious, you should also describe how to run your code locally.
+1. Find the correct repository on Github.
+2. Open repository using the green GitPod button at the top right side of the page.
+3. In terminal run "pip3 freeze --local > requirements.txt" command to create a .txt file. 
+   Heroku needs this to know what dependencies the app uses.
+4. In the terminal run the "echo web: python app.py > Procfile" command to create a Procfile that Heroku needs.
+5. Check the Procfile hasn't got a blank line under the first line. If it has then delete the blank line.
+6. Go to Heroku and log in to the account already registered with them.
+7. Once logged in, go to the dashboard and click on "Create New App".
+8. Under "Create New App" click on the button called "App Name".
+9. Give the app a unique name although do not contain spaces within the app name.
+10. Select the correct region closest to current location.
+11. Click "create app".
+12. Set up automatic deployment by clicking on the "Github" icon inside of the "Deployment Method" section.
+13. Under the "Deployment Method" section there is another section called "Connect to GitHub", 
+    check that the correct GitHub profile is displayed inside it.
+14. Insert repository name inside the "Connect to Github" input field. Then click on "Search".
+15. When the repository shows, click on the "connect" button.
+16. Before clicking the "Enable Automatic Deployment" button, click on the settings tab.
+17. Click on "Reveal Config Var".
+18. Here tell Heroku which variables are required, but do not include quotes for the key or the value.
+19. Insert variables of (IP, PORT, MONGO_URI, MONGODB_NAME, SECRET_KEY).
+20. Go to GitPod and make sure that the requirements.txt and Procfile have been pushed to the correct repository.
+21. Go to Heroku and click on "Enable Automatic Deployment".
+22. Select the branch. Select the (master) branch.
+23. Click "Deploy Branch"
+24. Wait for Heroku to build the app.
+25. When Heroku has finished building and the site is deployed click "View" to launch the new app.
+
+## Local Deployment:
+To run the code locally you can download a zip file which contains all of the code and files to build the app within the Github repository.
+When the files have downloaded, a program such as VScode can be used to open them.
 
 > # Credits
 
  ## Content 📖
 Most of the app.py and env.py was imitated from Code Institutes tutorial video for a mini project. I used the sme principles to make this project,
 then I tweaked it to fit my needs for the app and added extra content and styling.
+Manojlovic1998's project for https://recipe-pot.herokuapp.com/ was very inspiring and helpful in the deployment steps. 
+I imitated this design within the deployment section of the readme.md and the tutorial video at codeinstitute to create the deployment
+section of this readme.md and then tailored it to my project as they both explained the steps very well.
+
 
  ## Media 🎞️
 The photos used in this site were obtained from google.
