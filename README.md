@@ -169,6 +169,10 @@ from a recipe such as 'chocolate', then all the recipes that has that ingredient
 
 * Finally, I checked all the categories and recipes to make sure that the recipes had been placed into the correct categories. 
 
+* I deployed the app and checked it on my phone however I discovered something crucial to the functionality of the search bar! 
+The search bar only worked when a user was logged in, so I had to remove the search bar from displaying until a user creates an account on
+the app and logs in. So glad I checked it on my phone before submitting the project.
+
 
 
 
