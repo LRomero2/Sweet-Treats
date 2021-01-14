@@ -13,12 +13,12 @@ The app follows a color theme on each page, intuitive navbar and search function
 > ## UX 📱
 The app is for any who loves to cook and wants to try making something new. I focused this app soley on baking as there are millions of sweet dish recipes and sweet things are my favourite.
 Most people who follow recipes in the kitchen use their tablet or smart phone to follow along. For that reason, I wanted the app to be responsive
-yet simple as when someone is cooking, they dont want a lod of pop ups and advert opening on their device. This simple layout is easy for anyone to follow, 
-including those who are now very familiar with technology.
+yet simple as when someone is cooking, they dont want a load of pop ups and adverts opening on their device. This simple layout is easy for anyone to follow, 
+including those who are not very familiar with technology.
 
 * As a new user, I want to take a look at recipes for some ideas and see what recipes the app has to offer.
 I can register an account within the app by providing a name and password.
-The passwords have been secured in mongodb and have been hashed for user security. Then I can go to the 'Home' page and browse the categories of recpes, then I can click on a category, click on a recipe of my choice and start following the recipe.
+The passwords have been secured in mongodb and have been hashed for user security. Then I can go to the 'Home' page and browse the categories of recipes, then I can click on a category, click on a recipe of my choice and start following the recipe.
 To make things easier for newcomers, I added the ingredients onto the recipe card so that a user knows exactly what they need to be able to complete the recipe.
 Additionally, if they dont have all the ingredients they can click on the button that says 'Buy the ingredients'. This button gives them an option to buy from amazon or tesco and the link will take them straight to their websites.
 When I have finished on the app, I can then click log out on the navbar.
@@ -33,29 +33,54 @@ edit any information i want in the form. When i'm done I can click done. As part
 
 
 * As a user wanting to delete a recipe, I can go to the profile page by clicking on profile within the navbar.
-Find the recipe I want and then click 'Delete'. As part of defensive programming, a modal box will appear confirming weather the user really wants to delete this recipe.
+Find the recipe I want and then click 'Delete'. As part of defensive programming, a modal box will appear confirming whether the user really wants to delete this recipe.
 This option is only available to the user who first added the recipe.
 
 
 * As a user who does not have an account, I can click the 'Register an account' link and make an account to use the app.
 
 * As the Admin of the app, I can add and delete categories by clicking on 'Manage Categories', 
-then selecting the category I want and click on 'Delete'. 'Edit'. Or I can 'Add a new Category'.
+then selecting the category I want and click on 'Delete'. 'Edit'. In addition, I can 'Add a new Category'.
 
-Here are the wireframes for the desktop and mobile view of the app.
-<img src="https://browser-d0d4bab4-3203-42f7-9427-2507f859b0d3.ws-eu03.gitpod.io/workspace/Sweet-Treats/static/wireframes/recipehomepagedesktopview.png" style="margin: 0;">
+Please see the link to the wireframe folder to view the wireframes. I included a link instead of the images within this README.md
+because the images are very large. Within the folder you will find the images for the wireframes for a desktop and mobile view of
+the landing page along with an example of a category page within the app and a recipe page.
+Please see the folder here:[static/wireframes](static/wireframes)
 
-<img src="https://browser-d0d4bab4-3203-42f7-9427-2507f859b0d3.ws-eu03.gitpod.io/workspace/Sweet-Treats/static/wireframes/recipehomepagemobileview.png" style="margin: 0;">
+## Five planes of UX
 
-Here are the wireframes for the recipe page and the category page.
-
-<img src="https://browser-d0d4bab4-3203-42f7-9427-2507f859b0d3.ws-eu03.gitpod.io/workspace/Sweet-Treats/static/wireframes/recipecardwireframedesktopview.png" style="margin: 0;">
-<img src="https://browser-d0d4bab4-3203-42f7-9427-2507f859b0d3.ws-eu03.gitpod.io/workspace/Sweet-Treats/static/wireframes/displayrecipepagedesktop.png" style="margin: 0;">
+* **Strategy** - 
+The Business goals for this project were to get the user to register with the app to become a user. Also, use my app for recipes for baking
+and enjoy the social side of the app, i.e seeing other users recipes that they upload and being able to share their recipes with the world.
+-----
+* **Skeleton** - 
+The user would have to be able to add, view, edit and delete their own recipes as they wish but not delete or edit other users recipes.
+They would also have to register and log in to have full access to the site and it's features. The users also need to be able to search
+for a word that will show them all the recipes that contain that word, for easy finding of recipes.
+------
+* **Structure** - 
+The content needed to be logically grouped together in categories and display the most logical and expected content for each page visited.
+The home page contains all the different categories of recipes, then within that category the different recipes, then within that recipe,
+the information on how to make that particular product. 
+------
+* **Scope** - 
+The app needed to include links to social media pages as the app itself encourages a social theme of viewing other peoples recipes. 
+The project also includes links to inspirational pages such as good cookware to invest in, recent videos for quick recipes and excellent
+dishes from all over the world for inspiration to make something new. One feature heavily relied on by the each and every user is of course
+the navbar from which all major actions are taken along with navigation of the entire app. This is nicely responsive thanks to Materialize CSS.
+Another nice feature I wanted to include was a link to be able to buy the ingredients. On each recipe card, the ingredients displays so that each
+user knows straight away if they have what is needed to make the sweet treat. If not, they can click on the tab for 'Buy Ingredients'
+and they have the options of buying from amazon or tesco. 
+------
+* **Surface** - 
+The finished appearance of the app is simple overall. This ensures that a user of any age is able to navigate their way through the app
+and to be able to understand what they are looking at. The appealing image of baked goods appears on nearly every page and there is a color 
+theme followed for a uniformed look. 
 
 > # Features 🔎
 ## Existing Features
 * Navbar - This is very obvious to the user and easy to use. It allows all users to navigate their way around the site effortlessly.
-* Search bar - The search bar is intuitivly placed at the top of the page where users are most likely to see it. 
+* Search bar - The search bar is intuitively placed at the top of the page where users are most likely to see it. 
              This enables them to search for a category or recipe quickly using a word.
 * Video - The video on the bottom of the home page let's users see the recipe of the month within the app.
 * Categories - The recipe categories breaks up the recipes to a user friendly and logical display. Users can then find recipes with ease.
