@@ -1,5 +1,6 @@
-README.md
 # Sweet Treats 🧁
+You can see the live site here.
+https://sweet-treats-project.herokuapp.com/ 
 
 <img src="https://browser-d0d4bab4-3203-42f7-9427-2507f859b0d3.ws-eu03.gitpod.io/workspace/Sweet-Treats/static/imgs/thirdprojectscreenshot.jpg" style="margin: 0;">
 
@@ -214,14 +215,48 @@ I pushed it to Github to be stored. When I finished the project I deployed it to
 To run the code locally you can download a zip file which contains all of the code and files to build the app within the Github repository.
 When the files have downloaded, a program such as VScode can be used to open them.
 
+## Setting up the project on MONGODB_NAME
+1. Go to 'mongodb.com'.
+2. Click on the 'Start Free' button from the main landing page.
+3. Then fill in the form with your details.
+4. To create a cluster to work with the project, click 'Shared Clusters' or 'Create a Free Cluster'.
+5. Then select a Cloud provider. AWS is my personal choice.
+6. Select the region closest to your area. Make sure to select the region closest to you that is free as some have to be paid for.
+   you can of course pay for extra services with MONOGDB if you wish but for this project I kept it simple with the free version.
+7. Ater that choose the Cluster Tier. I chose the M0 Tier, which is the 'free forever' tier.
+8. Scroll down to the bottom, and select 'Cluster Name'. Create a name for your cluster.
+9. Finally, click on the 'Create Cluster' button.
+10. Then click on 'Database Access' under the Security section on the
+    left, to create the database user credentials.
+11. Click on 'Add New Database User', and use the default SCRAM authentication
+    method by creating a username and password. Only use letters and numbers if possible so as to not create further compliactions 
+    within the project.
+12. Set privileges to 'Read and Write to the Database', and then click 'Add User'.
+13. Now click on 'Network Access' within the Security menu,
+    to whitelist the IP address and make sure that it has access to our database.
+    Click 'Add IP Address', and select 'Allow Access From Anywhere', to access this from our workspace, and then later on Heroku.
+    Put the IP addresses of the hosts here, so this can act as a further security feature, and can help to prevent unauthorized access to the data.
+14. Go back to our Clusters tab.
+15. Now click on the 'Collections' button. Then click 'Add My Own Data'.
+16. Give the database a name using camelCase.
+17. Then you can add a collection. I added the collection 'Recipes'.
+18. To create the first document within the collection click on 'Insert Document'. 
+    Documents are stored in a format that's JSON-like, so it needs to have curly brackets and key-value pairs.
+19. Type in the fields you want to be displayed within the document. I inserted a basic cookie recipe with the ingredients, 
+    description, name and method.
+20. Once that's filled-in, click on the 'Insert' button and wait for it to insert that into the database.
+21. Now the first document has been created on MONGODB.
+22. When the app has been created and the functionality has been added, the data can then be added via the app instead of in MONGODB.
+    But this is how I set up the database at the start of the project.
+
 > # Credits
 
  ## Content 📖
-Most of the app.py and env.py was imitated from Code Institutes tutorial video for a mini project. I used the sme principles to make this project,
+Most of the app.py and env.py was imitated from Code Institutes tutorial videos for a mini project. I used the same principles to make this project,
 then I tweaked it to fit my needs for the app and added extra content and styling.
-Manojlovic1998's project for https://recipe-pot.herokuapp.com/ was very inspiring and helpful in the deployment steps. 
-I imitated this design within the deployment section of the readme.md and the tutorial video at codeinstitute to create the deployment
-section of this readme.md and then tailored it to my project as they both explained the steps very well.
+Manojlovic1998's project for https://recipe-pot.herokuapp.com/ was very inspiring and helpful. 
+I used the steps for the Heroku deployment video at codeinstitute to create the deployment
+section of this readme.md and then tailored it to my project as they explained the steps very well.
 
 
  ## Media 🎞️
