@@ -154,7 +154,6 @@ a minimum character reuirement for the name and password. The JQuery is used to 
 * To test the log in functionality, I typed a correct name but the wrong password and the log in was not sucessful. Then I typed in the wrong 
 name but correct password and it still didn't work. This all worked well and only opened a profile when the correct credentials were entered.
 
-
 * I tested the delete functionality a lot as I was developing the app to make sure they had actually been erased from not only the app as it 
 is seen but also on Monogdb. I clicked on delete on a recipe, then clicked yes when the pop up modal asked me if i really wanted to delete it.
 When it redirected me back to the profile page, I could see that it had been deleted. To make sure that it had also been deleted on Monogdb 
@@ -169,6 +168,12 @@ would, then I went to Monogdb to check that the data had been added or edited th
 from a recipe such as 'chocolate', then all the recipes that has that ingredient in the title displayed itself.
 
 * Finally, I checked all the categories and recipes to make sure that the recipes had been placed into the correct categories. 
+
+* I checked that the categories could be added, deleted and edited by the admin. Here is a photo of the manage cateory page. 
+Feel free to look at the admin's profile to be able to see this. The username is: admin. The password is:cookie.
+
+<img src="https://browser-d0d4bab4-3203-42f7-9427-2507f859b0d3.ws-eu03.gitpod.io/workspace/Sweet-Treats/static/imgs/managecatsscreenshot.jpg" style="margin: 0;">
+
 
 * I deployed the app and checked it on my phone however I discovered something crucial to the functionality of the search bar! 
 The search bar only worked when a user was logged in, so I had to remove the search bar from displaying until a user creates an account on
@@ -211,9 +216,15 @@ I pushed it to Github to be stored. When I finished the project I deployed it to
 24. Wait for Heroku to build the app.
 25. When Heroku has finished building and the site is deployed click "View" to launch the new app.
 
-## Local Deployment:
-To run the code locally you can download a zip file which contains all of the code and files to build the app within the Github repository.
-When the files have downloaded, a program such as VScode can be used to open them.
+## Local Deployment and Cloning:
+1. On GitHub, go to the main page of the repository. Above the list of files, click  Code.
+2. To clone the repository using HTTPS, under "Clone with HTTPS", click the clipboard icon. To clone a repository using GitHub CLI, 
+   click Use GitHub CLI, then click click the clipboard icon.
+3. Open Git Bash. Change the current working directory to the location where you want the cloned directory.
+4. Type git clone, and then paste the URL you copied earlier.
+5. Press Enter to create your local clone.
+6. This should now be all done.
+
 
 ## Setting up the project on MONGODB_NAME
 1. Go to 'mongodb.com'.
