@@ -1,31 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" 
-    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Bootstrap core CSS -->
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="static/vendor/simple-line-icons/css/simple-line-icons.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+  <!-- Plugin CSS -->
+  <link rel="stylesheet" href="static/device-mockups/device-mockups.min.css">
+
+  <!-- Custom styles for this template -->
+  <link href="static/css/new-age.min.css" rel="stylesheet">
+
      {% block styles %}
      {% endblock %}
     <title>Sweet Treats Recipe Book</title>
 </head>
-<body>
-<header>
-    <!---Top Navbar--->
-   	<nav class="nav-extended text-shadow black">
-			<div class="nav-wrapper orange-text">
-				<a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
-				<ul class="left hide-on-med-and-down">
-                    <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
-                    <!-- Dropdown Trigger -->
-                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Recipes<i class="material-icons right">arrow_drop_down</i></a></li>
-   
-                    <!-- Dropdown Structure -->
-                    <ul id="dropdown1" class="dropdown-content grey darken-3">
-                        <li><a href="{{ url_for('display_category', category_name='sweet_breads')}}">Sweet Breads</a></li>
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Sweet Treats</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            {% if session.user %}
+            <a class="nav-link" href="{{ url_for('get_recipes') }}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url_for('profile', username=session['user']) }}">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url_for('add_recipe') }}">Add New Recipe</a>
+          </li>
+          <h5>Recipes</h5>
+          <li class="nav-item">
+            <li><a href="{{ url_for('display_category', category_name='sweet_breads')}}">Sweet Breads</a></li>
                         <li><a href="{{ url_for('display_category', category_name='drinks_moussepots')}}">Drinks & Mousse Pots</a></li>
                         <li><a href="{{ url_for('display_category', category_name='cakes_puddings')}}">Cakes & Puddings</a></li>
                         <li><a href="{{ url_for('display_category', category_name='sweet_pies')}}">Sweet Pies</a></li>
@@ -33,118 +60,195 @@
                         <li><a href="{{ url_for('display_category', category_name='icecreams_sorbets')}}">Ice Creams & Sorbets</a></li>
                         <li><a href="{{ url_for('display_category', category_name='pastries')}}">Pastries</a></li>
                         <li><a href="{{ url_for('display_category', category_name='truffles_candies')}}">Truffles & Candies</a></li>
-                    </ul>
-                    {% if session.user %}
-                        <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                        <li><a href="{{ url_for('add_recipe') }}">Add New Recipe</a></li>
+          </li>
                         {% if session.user|lower == "admin"|lower %}
-                        <li><a href="{{ url_for('get_categories') }}">Manage Categories</a></li>
+                        <li class="nav-item"><a href="{{ url_for('get_categories') }}">Manage Categories</a></li>
                         {% endif %}
-                        <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-                    {% else %}
-                        <li><a href="{{ url_for('login') }}">Log In</a></li>
-                        <li><a href="{{ url_for('register') }}">Register</a></li>
-                    {% endif %}
-				</ul>
-			</div>
-        </nav>
-       
- <!---Mobile Side Navbar--->   
- <ul class="sidenav" id="mobile-demo">
-      <nav class="orange lighten-2">
-    <div class="nav-wrapper">
-      <form>
-      </form>
+                        <li class="nav-item"><a href="{{ url_for('logout') }}">Log Out</a></li>
+                             {% else %}
+                             <li class="nav-item"><a href="{{ url_for('login') }}">Log In</a></li>
+                             <li class="nav-item"><a href="{{ url_for('register') }}">Register</a></li>
+                             {% endif %}
+        </ul>
+      </div>
     </div>
   </nav>
-            <li><h4 class="center-align grey-text text-darken 1">Manage Recipes</h4></li>
-             <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
-                 <!-- Dropdown Trigger -->
-                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Recipes<i class="material-icons right">arrow_drop_down</i></a></li>
-   
-                    <!-- Dropdown Structure -->
-                    <ul id="dropdown2" class="dropdown-content grey darken-3 orange-text">
-                        <li><a href="{{ url_for('display_category', category_name='sweet_breads')}}">Sweet Breads</a></li>
-                        <li><a href="{{ url_for('display_category', category_name='drinks_moussepots')}}">Drinks & Mousse Pots</a></li>
-                        <li><a href="{{ url_for('display_category', category_name='cakes_puddings')}}">Cakes & Puddings</a></li>
-                        <li><a href="{{ url_for('display_category', category_name='sweet_pies')}}">Sweet Pies</a></li>
-                         <li><a href="{{ url_for('display_category', category_name='cookies_biscuits')}}">Cookies & Biscuits</a></li>
-                        <li><a href="{{ url_for('display_category', category_name='icecreams_sorbets')}}">Ice Creams & Sorbets</a></li>
-                        <li><a href="{{ url_for('display_category', category_name='pastries')}}">Pastries</a></li>
-                        <li><a href="{{ url_for('display_category', category_name='truffles_candies')}}">Truffles & Candies</a></li>
-                    </ul>
-            {% if session.user %}
-                <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                <li><a href="{{ url_for('add_recipe') }}">Add New Recipe</a></li>
-                {% if session.user|lower == "admin"|lower %}
-                <li><a href="{{ url_for('get_categories') }}">Manage Categories</a></li>
-                {% endif %}
-                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-            {% else %}
-                <li><a href="{{ url_for('login') }}">Log In</a></li>
-                <li><a href="{{ url_for('register') }}">Register</a></li>
-            {% endif %}
-        </ul>
-        <div id="landing-image" class="img-gradient">
- </div>
- <div class="container">
-     <h3 id="title" class="center-align">Sweet Treats</h3>
- </div>
-</header>
 
-<section>
-      <!-- flash messages -->
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="row flashes">
-                        <h4 class="grey darken-1 lighten-4 center-align">{{ message }}</h4>
-                    </div>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
-</section>
 
-<main class="container">
-  {% block content %}
-  {% endblock %}
-</main>
 
- <!-- footer -->
-    <footer id="gradient" class="page-footer black">
-        <div class="container">
-             <div class="row">
-                 <div class="col s4 grey-text-shadow">  <i class="medium material-icons">local_dining</i>
-                     <h5><a href="https://www.souschef.co.uk/collections/cookware" target="_blank">Utensils we like</a></h5>
-                 </div>
-                 <div class="col s4 grey-text-shadow">  <i class="medium material-icons">local_movies</i>
-                     <h5><a href="https://www.youtube.com/watch?v=shJDSc1Ybxw" target="_blank">Quick recipe videos</a></h5>
-                 </div>
-                 <div class="col s4 grey-text-shadow">  <i class="medium material-icons">cloud_circle</i>
-                     <h5><a href="https://edition.cnn.com/travel/article/world-50-best-desserts/index.html" target="_blank">Inspiration</a></h5>
-                 </div>
-             </div>
-        </div>     
-         
-
-    <div id="footer-badges" class="col s6">
-         <div class="col s4">
-                 <a href="http://www.facebook.com/" target="_blank">
-                    <i class="fab fa-facebook-square"></i></a> 
-                    <a href="http://www.instagram.com/" target="_blank">
-                    <i class="fab fa-instagram-square ml-4"></i></a> 
-                    <a href="http://www.twitter.com/" target="_blank">
-                    <i class="fab fa-twitter-square ml-4"></i></a>  
-         </div>
+  <header class="masthead">
+    <div class="container h-100">
+      <div class="row h-100">
+        <div class="col-lg-7 my-auto">
+          <div class="header-content mx-auto">
+            <h1 class="mb-5">New Age is an app landing page that will help you beautifully showcase your new mobile app, or anything else!</h1>
+            <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger">Start Now for Free!</a>
+          </div>
+        </div>
+        <div class="col-lg-5 my-auto">
+          <div class="device-container">
+            <div class="device-mockup iphone6_plus portrait white">
+              <div class="device">
+                <div class="screen">
+                  <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
+                  <img src="static/img/demo-screen-1.jpg" class="img-fluid" alt="">
+                </div>
+                <div class="button">
+                  <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-                 <div class="copyright"><p>©Lauren Romero 2021. All Rights Reserved</p></div>
-       </footer>
+  </header>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js" 
-  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="{{ url_for('static', filename='js/script.js')}}"></script>
-  {% block scripts %}
-  {% endblock %}
+         
+<section class="download bg-primary text-center" id="download">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <h2 class="section-heading">Discover what all the buzz is about!</h2>
+          <p>Our app is available on any mobile device! Download now to get started!</p>
+          <div class="badges">
+            <a class="badge-link" href="#"><img src="static/img/google-play-badge.svg" alt=""></a>
+            <a class="badge-link" href="#"><img src="static/img/app-store-badge.svg" alt=""></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-heading text-center">
+        <h2>Unlimited Features, Unlimited Fun</h2>
+        <p class="text-muted">Check out what you can do with this app theme!</p>
+        <hr>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 my-auto">
+          <div class="device-container">
+            <div class="device-mockup iphone6_plus portrait white">
+              <div class="device">
+                <div class="screen">
+                  <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
+                  <img src="static/img/demo-screen-1.jpg" class="img-fluid" alt="">
+                </div>
+                <div class="button">
+                  <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8 my-auto">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="feature-item">
+                  <i class="icon-screen-smartphone text-primary"></i>
+                  <h3>Device Mockups</h3>
+                  <p class="text-muted">Ready to use HTML/CSS device mockups, no Photoshop required!</p>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="feature-item">
+                  <i class="icon-camera text-primary"></i>
+                  <h3>Flexible Use</h3>
+                  <p class="text-muted">Put an image, video, animation, or anything else in the screen!</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="feature-item">
+                  <i class="icon-present text-primary"></i>
+                  <h3>Free to Use</h3>
+                  <p class="text-muted">As always, this theme is free to download and use for any purpose!</p>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="feature-item">
+                  <i class="icon-lock-open text-primary"></i>
+                  <h3>Open Source</h3>
+                  <p class="text-muted">Since this theme is MIT licensed, you can use it commercially!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta-content">
+      <div class="container">
+        <h2>Stop waiting.<br>Start building.</h2>
+        <a href="#contact" class="btn btn-outline btn-xl js-scroll-trigger">Let's Get Started!</a>
+      </div>
+    </div>
+    <div class="overlay"></div>
+  </section>
+
+  <section class="contact bg-primary" id="contact">
+    <div class="container">
+      <h2>We
+        <i class="fas fa-heart"></i>
+        new friends!</h2>
+      <ul class="list-inline list-social">
+        <li class="list-inline-item social-twitter">
+          <a href="#">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </li>
+        <li class="list-inline-item social-facebook">
+          <a href="#">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </li>
+        <li class="list-inline-item social-google-plus">
+          <a href="#">
+            <i class="fab fa-google-plus-g"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; Your Website 2020. All Rights Reserved.</p>
+      <ul class="list-inline">
+        <li class="list-inline-item">
+          <a href="#">Privacy</a>
+        </li>
+        <li class="list-inline-item">
+          <a href="#">Terms</a>
+        </li>
+        <li class="list-inline-item">
+          <a href="#">FAQ</a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+
+	<!-- Masthead --
+  <header class="masthead text-white text-center" style="background-image: url('{{ url_for('static', filename='imgs/newlandingpagebackground.jpg') }}')">
+   ------->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="static/vendor/jquery/jquery.min.js"></script>
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="static/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="static/js/new-age.min.js"></script>
+
 </body>
+
 </html>
