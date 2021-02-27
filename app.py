@@ -19,7 +19,6 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-
 @app.route("/")
 @app.route("/get_recipes")
 def get_recipes():
@@ -99,10 +98,11 @@ def profile(username):
 
     if session["user"]:
         recipes = list(mongo.db.recipes.find())
-        return render_template("profile.html", recipes=recipes, username=username)
-    
+        return render_template("profile.html",
+               recipes=recipes, username=username)
+
     return redirect(url_for("login"))
-   
+
 
 @app.route("/logout")
 def logout():
@@ -110,7 +110,6 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
-
 
 
 @app.route("/add_recipe", methods=["GET", "POST"])
@@ -155,7 +154,8 @@ def edit_recipe(recipe_id):
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("edit_recipe.html", recipe=recipe, categories=categories)
+    return render_template("edit_recipe.html",
+    recipe=recipe, categories=categories)
 
 
 @app.route("/delete_recipe/<recipe_id>")
@@ -209,8 +209,8 @@ def delete_category(category_id):
 def display_category(category_name):
     recipes_in_category = list(mongo.db.recipes.find({"category_name": category_name}))
     for recipe in recipes_in_category:
-      if 'ingredients' in recipe:
-        recipe["ingredients"] = recipe["ingredients"].split(',')
+        if 'ingredients' in recipe:
+            recipe["ingredients"] = recipe["ingredients"].split(',')
     return render_template("category.html", recipes = recipes_in_category)
 
 
@@ -225,13 +225,14 @@ def display_ingredients(ingredients_id):
     recipes_in_category = mongo.db.recipes.find({"_id": ObjectId(ingredients_id)})
     ingredients = recipes_in_category.ingredients.split(',')
     print(ingredients)
-    return render_template("display_recipe.html", ingredients = ingredients_in_recipe)
+    return render_template("display_recipe.html",
+               ingredients = ingredients_in_recipe)
     return render_template("category.html", ingredients = ingredients_in_recipe)
-
 
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)
+
             
