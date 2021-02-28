@@ -189,14 +189,14 @@
             <div class="row">
               <div class="col-lg-6">
                 <div class="feature-item">
-                  <i class="icon-screen-smartphone text-primary"></i>
+                  <i class="fas fa-mobile-alt fa-3x"></i>
                   <h3>Social Recipe Book</h3>
                   <p class="text-muted">Share your best recipes with the world or pinch some of theirs!</p>
                 </div>
               </div>
               <div class="col-lg-6">
                 <div class="feature-item">
-                  <i class="icon-camera text-primary"></i>
+                  <i class="fas fa-camera-retro fa-3x"></i>
                   <h3>Links to Recommended Videos</h3>
                   <p class="text-muted">Find links to some of the best quick recipes and how to's</p>
                 </div>
@@ -205,14 +205,14 @@
             <div class="row">
               <div class="col-lg-6">
                 <div class="feature-item">
-                  <i class="icon-present text-primary"></i>
+                  <i class="fas fa-gift fa-3x"></i>
                   <h3>Free to Use</h3>
                   <p class="text-muted">This App is completely free to use. Register an account for free today</p>
                 </div>
               </div>
               <div class="col-lg-6">
                 <div class="feature-item">
-                  <i class="icon-lock-open text-primary"></i>
+                  <i class="fas fa-unlock fa-3x"></i>
                   <h3>Secure Account</h3>
                   <p class="text-muted">Keep your recipes safe and sound. Only you can add, edit and delete your own recipes</p>
                 </div>
@@ -231,17 +231,14 @@
   {% endblock %}
   <hr>
 
-  <section class="cta">
-    <div class="cta-content">
-      <div class="container">
+  <section class="footer-photo">
+      <div id="footer-photo" class="container-fluid" style="background-image: url('{{ url_for('static', filename='img/social-media.jpg') }}')">
         <h2>Stop waiting.<br>Start sharing.</h2>
-        <a href="#contact" class="btn btn-outline btn-xl js-scroll-trigger">Let's Get Started!</a>
+        <a href="{{ url_for('register') }}" class="btn btn-outline btn-xl js-scroll-trigger">Let's Get Started!</a>
       </div>
-    </div>
     <div class="overlay"></div>
   </section>
 
-  <hr>
 
   <!-- Footer -->
   <footer>
