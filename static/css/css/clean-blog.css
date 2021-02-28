@@ -452,3 +452,7 @@ section .footer-photo .container-fluid{
     height:300px;
 }
 
+div .img-fluid{
+    height:300px;
+    background-size: cover;
+}
