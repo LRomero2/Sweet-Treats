@@ -2,14 +2,14 @@
 {% block content %}
 
  <!-- heading -->
-<h3 class="dark-grey-text text-darken-4 center-align">Edit Recipe</h3>
+<h3 class="text-center">Edit Recipe</h3>
 
-    <div class="row card-panel grey lighten-5">
-        <form class="col s12" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
+    <div class="row">
+        <form class="col-sm-12" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
              <!-- category selection -->
             		<div class="row">
-				<div class="input-field col s12">
-                    <i class="fas fa-folder-open prefix orange-text text-darken-4"></i>
+				<div class="input-field col-sm-12">
+                    <i class="fas fa-folder-open"></i>
 					<select id="category_name" name="category_name" class="validate" required>
                         <option value="" disabled selected>Choose Category</option>
                         {% for category in categories %}
@@ -25,8 +25,8 @@
             </div>
               <!-- recipe name -->
             <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-pencil-alt prefix orange-text text-darken-4"></i>
+                <div class="input-field col-sm-12">
+                    <i class="fas fa-pencil-alt"></i>
                     <input id="recipe_name" name="recipe_name" minlength="5" maxlength="50"
                         value="{{ recipe.recipe_name }}" type="text" class="validate" required>
                     <label for="recipe_name">Recipe Name</label>
@@ -34,8 +34,8 @@
             </div>
              <!-- recipe description -->
             <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-align-left prefix orange-text text-darken-4"></i>
+                <div class="input-field col-sm-12">
+                    <i class="fas fa-align-left"></i>
                     <textarea id="recipe_description" name="recipe_description" minlength="5"
                         maxlength="200" class="materialize-textarea validate" required>
                         {{- recipe.recipe_description -}}
@@ -45,8 +45,8 @@
             </div>
            <!-- ingredients -->
             <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-cookie-bite prefix orange-text text-darken-4"></i>
+                <div class="input-field col-sm-12">
+                    <i class="fas fa-cookie-bite"></i>
                     <textarea id="ingredients" name="ingredients" minlength="5"
                         maxlength="200" class="materialize-textarea validate" required></textarea>
                     <label for="ingredients">Ingredients</label>
@@ -54,8 +54,8 @@
             </div>
             <!-- method -->
             <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-blender prefix orange-text text-darken-4"></i>
+                <div class="input-field col-sm-12">
+                    <i class="fas fa-blender"></i>
                     <textarea id="method" name="method" minlength="5"
                         maxlength="200" class="materialize-textarea validate" required></textarea>
                     <label for="method">Method</label>
@@ -63,17 +63,17 @@
             </div>
             <!-- date made -->
             <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-calendar-alt prefix orange-text text-darken-4"></i>
+                <div class="input-field col-sm-12">
+                    <i class="fas fa-calendar-alt"></i>
                     <input id="due_date" name="due_date" type="text" class="datepicker validate" required>
                     <label for="due_date">Date Created</label>
                 </div>
             </div>
             <!-- is favourite toggle -->
 			<div class="row">
-				<div class="input-field col s12">
+				<div class="input-field col-sm-12">
 					<div class="switch">
-                        <i class="fas fa-star prefix orange-text text-darken-4"></i>
+                        <i class="fas fa-star"></i>
 						<label for="is_urgent">
                             {% if recipe.is_urgent == "on" %}
                                 <input type="checkbox" id="is_urgent" name="is_urgent" checked>
@@ -88,7 +88,7 @@
 			</div>
                 <!-- submit button -->
             <div class="row">
-                 <div class="col s12 center-align">
+                 <div class="col-sm-12 justify-content-center">
                     <!-- cancel button -->
                     <a href="{{ url_for('get_recipes') }}" class="btn-large red text-shadow">
                         Cancel <i class="fas fa-times-circle right"></i>
