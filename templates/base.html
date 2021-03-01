@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -19,60 +18,16 @@
   <!-- Custom styles for this template -->
    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}">
    <link rel="stylesheet" href="{{ url_for('static', filename='css/css/clean-blog.min.css') }}">
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/css/clean-blog.css') }}">
 
      {% block styles %}
      {% endblock %}
     <title>Sweet Treats Recipe Book</title>
 </head>
 <body>
-
-
-  <!-- Navigation --
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">Sweet Treats</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            {% if session.user %}
-            <a class="nav-link" href="{{ url_for('get_recipes') }}">Home</a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ url_for('profile', username=session['user']) }}">Profile</a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ url_for('add_recipe') }}">Add New Recipe</a>
-          </li>
-          <h5>Recipes</h5>
-          <li class="nav-item">
-            <li><a href="{{ url_for('display_category', category_name='sweet_breads')}}">Sweet Breads</a></li>
-                        <li><a href="{{ url_for('display_category', category_name='drinks_moussepots')}}">Drinks & Mousse Pots</a></li>
-                        <li><a href="{{ url_for('display_category', category_name='cakes_puddings')}}">Cakes & Puddings</a></li>
-                        <li><a href="{{ url_for('display_category', category_name='sweet_pies')}}">Sweet Pies</a></li>
-                         <li><a href="{{ url_for('display_category', category_name='cookies_biscuits')}}">Cookies & Biscuits</a></li>
-                        <li><a href="{{ url_for('display_category', category_name='icecreams_sorbets')}}">Ice Creams & Sorbets</a></li>
-                        <li><a href="{{ url_for('display_category', category_name='pastries')}}">Pastries</a></li>
-                        <li><a href="{{ url_for('display_category', category_name='truffles_candies')}}">Truffles & Candies</a></li>
-          </li>
-                        {% if session.user|lower == "admin"|lower %}
-                        <li class="nav-item"><a href="{{ url_for('get_categories') }}">Manage Categories</a></li>
-                        {% endif %}
-                        <li class="nav-item"><a href="{{ url_for('logout') }}">Log Out</a></li>
-                             {% else %}
-                             <li class="nav-item"><a href="{{ url_for('login') }}">Log In</a></li>
-                             <li class="nav-item"><a href="{{ url_for('register') }}">Register</a></li>
-                             {% endif %}
-        </ul>
-      </div>
-    </div>
-  </nav>-------->
-
-
+    
   <!-- Navigation -->
+  <header>
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
       <a class="navbar-brand" href="{{ url_for('get_recipes') }}">Sweet Treats</a>
@@ -92,17 +47,25 @@
           <li class="nav-item">
             <a href="{{ url_for('add_recipe') }}">Add New Recipe</a>
           </li>
-          <h5>Recipes</h5>
-          <li class="nav-item">
-            <li><a href="{{ url_for('display_category', category_name='sweet_breads')}}">Sweet Breads</a></li>
-                        <li><a href="{{ url_for('display_category', category_name='drinks_moussepots')}}">Drinks & Mousse Pots</a></li>
-                        <li><a href="{{ url_for('display_category', category_name='cakes_puddings')}}">Cakes & Puddings</a></li>
-                        <li><a href="{{ url_for('display_category', category_name='sweet_pies')}}">Sweet Pies</a></li>
-                         <li><a href="{{ url_for('display_category', category_name='cookies_biscuits')}}">Cookies & Biscuits</a></li>
-                        <li><a href="{{ url_for('display_category', category_name='icecreams_sorbets')}}">Ice Creams & Sorbets</a></li>
-                        <li><a href="{{ url_for('display_category', category_name='pastries')}}">Pastries</a></li>
-                        <li><a href="{{ url_for('display_category', category_name='truffles_candies')}}">Truffles & Candies</a></li>
-          </li>
+          <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Recipes
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+            <li><a class="dropdown-item" href="{{ url_for('display_category', category_name='sweet_breads')}}">Sweet Breads</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('display_category', category_name='drinks_moussepots')}}">Drinks & Mousse Pots</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('display_category', category_name='cakes_puddings')}}">Cakes & Puddings</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('display_category', category_name='sweet_pies')}}">Sweet Pies</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('display_category', category_name='cookies_biscuits')}}">Cookies & Biscuits</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('display_category', category_name='icecreams_sorbets')}}">Ice Creams & Sorbets</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('display_category', category_name='pastries')}}">Pastries</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('display_category', category_name='truffles_candies')}}">Truffles & Candies</a></li>
+        </ul>
+        </li>
+      </ul>
+    </div>
                         {% if session.user|lower == "admin"|lower %}
                         <li class="nav-item"><a href="{{ url_for('get_categories') }}">Manage Categories</a></li>
                         {% endif %}
@@ -115,6 +78,23 @@
       </div>
     </div>
   </nav>
+
+ <!-- mobile sidenav --
+		<ul class="sidenav" id="mobile-demo">
+            <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
+            {% if session.user %}
+                <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                <li><a href="{{ url_for('add_recipe') }}">Add New Recipe</a></li>
+                {% if session.user|lower == "admin"|lower %}
+                    <li><a href="{{ url_for('get_categories') }}">Manage Categories</a></li>
+                {% endif %}
+                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+            {% else %}
+                <li><a href="{{ url_for('login') }}">Log In</a></li>
+                <li><a href="{{ url_for('register') }}">Register</a></li>
+            {% endif %}
+		</ul>
+</header>--------------------->
 
   <!-- Page Header --
   <header class="masthead" style="background-image: url('static/imgs/newlandingpagebackground.jpg')">
@@ -161,27 +141,36 @@
     </div>
   </header>
 
+
+<figure class="text-center">
+  <blockquote class="blockquote">
+    <h2>The App that let's you share your recipes with the world</h2>
+  </blockquote>
+  <figcaption class="blockquote-footer">
+    Sweet Treats
+  </figcaption>
+</figure>
+
+
    <!-- Main Content -->
   {% block content %}
   {% endblock %}
 
+<hr>
+
   <section class="features" id="features">
     <div class="container">
-      <div class="section-heading text-center">
-        <p class="text-muted">The App that let's you share your recipes with the world</p>
-        <hr>
-      </div>
       <div class="row">
         <div class="col-lg-4 my-auto">
           <div class="device-container">
             <div class="device-mockup iphone6_plus portrait white">
               <div class="device">
                 <div class="screen">
-                   Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! --
+                   Put the demo screen image here
                   <img src="#" class="img-fluid" alt="">
                 </div>
                 <div class="button">
-                   You can hook the "home button" to some JavaScript events or just remove it --
+                   insert a button here
                 </div>
               </div>
             </div>
@@ -193,15 +182,15 @@
               <div class="col-lg-6">
                 <div class="feature-item">
                   <i class="fas fa-mobile-alt fa-3x"></i>
-                  <h3>Social Recipe Book</h3>
-                  <p class="text-muted">Share your best recipes with the world or pinch some of theirs!</p>
+                  <h3 class="text-center">Social Recipe Book</h3>
+                  <p class="text-muted text-center">Share your best recipes with the world or pinch some of theirs!</p>
                 </div>
               </div>
               <div class="col-lg-6">
                 <div class="feature-item">
                   <i class="fas fa-camera-retro fa-3x"></i>
-                  <h3>Links to Recommended Videos</h3>
-                  <p class="text-muted">Find links to some of the best quick recipes and how to's</p>
+                  <h3 class="text-center">Links to Recommended Videos</h3>
+                  <p class="text-muted text-center">Find links to some of the best quick recipes and how to's</p>
                 </div>
               </div>
             </div>
@@ -209,15 +198,15 @@
               <div class="col-lg-6">
                 <div class="feature-item">
                   <i class="fas fa-gift fa-3x"></i>
-                  <h3>Free to Use</h3>
-                  <p class="text-muted">This App is completely free to use. Register an account for free today</p>
+                  <h3 class="text-center">Free to Use</h3>
+                  <p class="text-muted text-center">This App is completely free to use. Register an account for free today</p>
                 </div>
               </div>
               <div class="col-lg-6">
                 <div class="feature-item">
                   <i class="fas fa-unlock fa-3x"></i>
-                  <h3>Secure Account</h3>
-                  <p class="text-muted">Keep your recipes safe and sound. Only you can add, edit and delete your own recipes</p>
+                  <h3 class="text-center">Secure Account</h3>
+                  <p class="text-muted text-center">Keep your recipes safe and sound. Only you can add, edit and delete your own recipes</p>
                 </div>
               </div>
             </div>
@@ -229,13 +218,16 @@
 
   <hr>
 
-  <section class="footer-photo">
-      <div class="img-fluid" style="background-image: url('{{ url_for('static', filename='img/social-media.jpg') }}')">
+<section id="footer-photo">
+<div class="container-fluid">
+   <div class="img-fluid" style="background-image: url('{{ url_for('static', filename='img/social-media.jpg') }}')">
         <h2>Stop waiting.<br>Start sharing.</h2>
         <a href="{{ url_for('register') }}" class="btn btn-outline btn-xl js-scroll-trigger">Let's Get Started!</a>
-      </div>
-    <div class="overlay"></div>
+</div>
+</div>
+  <div class="overlay"></div>
   </section>
+
 
 
   <!-- Footer -->

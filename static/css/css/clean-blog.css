@@ -447,12 +447,18 @@ section.cta .overlay {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-section .footer-photo .container-fluid{
+section #footer-photo .container-fluid{
     background-size: cover;
     height:300px;
 }
 
-div .img-fluid{
-    height:300px;
-    background-size: cover;
+
+
+div .input-field{
+    padding:10px;
+}
+
+
+div #register-button {
+    padding:10px;
 }
