@@ -3,12 +3,12 @@
 
  <!-- Heading -->
 <h3 class="text-center">Add Recipe</h3>
-
+<div class="container justify-content-center shadow p-3 mb-5 bg-body rounded">
     <div class="row">
-        <form class="col-sm-12" method="POST" action="{{ url_for('add_recipe') }}">
+        <form class="col-10" method="POST" action="{{ url_for('add_recipe') }}">
              <!-- category selection -->
             		<div class="row">
-				<div class="input-field col-sm-12">
+				<div class="input-field col-10">
                     <i class="fas fa-folder-open"></i>
 					<select id="category_name" name="category_name" class="validate" required>
                         <option value="" disabled selected>Choose Category</option>
@@ -21,7 +21,7 @@
             </div>
               <!-- recipe name -->
             <div class="row">
-                <div class="input-field col-sm-12">
+                <div class="input-field col-10">
                     <i class="fas fa-pencil-alt"></i>
                     <input id="recipe_name" name="recipe_name" minlength="5" maxlength="50"
                         type="text" class="validate" required>
@@ -30,7 +30,7 @@
             </div>
              <!-- recipe description -->
             <div class="row">
-                <div class="input-field col-sm-12">
+                <div class="input-field col-10">
                     <i class="fas fa-align-left"></i>
                     <textarea id="recipe_description" name="recipe_description" minlength="5"
                         maxlength="200" class="materialize-textarea validate" required></textarea>
@@ -39,7 +39,7 @@
             </div>
             <!-- ingredients -->
             <div class="row">
-                <div class="input-field col-sm-12">
+                <div class="input-field col-10">
                     <i class="fas fa-cookie-bite"></i>
                     <textarea id="ingredients" name="ingredients" minlength="5"
                         maxlength="300" class="materialize-textarea validate" required></textarea>
@@ -48,7 +48,7 @@
             </div>
             <!-- method -->
             <div class="row">
-                <div class="input-field col-sm-12">
+                <div class="input-field col-10">
                     <i class="fas fa-blender"></i>
                     <textarea id="method" name="method" minlength="5"
                         maxlength="2000" class="materialize-textarea validate" required></textarea>
@@ -57,7 +57,7 @@
             </div>
             <!-- date made -->
             <div class="row">
-                <div class="input-field col-sm-12">
+                <div class="input-field col-10">
                     <i class="fas fa-calendar-alt"></i>
                     <input id="due_date" name="due_date" type="text" class="datepicker validate" required>
                     <label for="due_date">Date Created</label>
@@ -65,7 +65,7 @@
             </div>
             <!-- is favourite toggle -->
 			<div class="row">
-				<div class="input-field col-sm-12">
+				<div class="input-field col-10">
 					<div class="switch">
                         <i class="fas fa-star"></i>
 						<label for="is_urgent">
@@ -78,13 +78,14 @@
 			</div>
          <!-- submit button -->
             <div class="row">
-                <div class="col-sm-12 justify-content-center">
-                    <button type="submit" class="btn-large waves-effect waves-light amber lighten-1 darken-1 text-shadow">
+                <div class="col-10 justify-content-center">
+                    <button type="submit" class="btn btn-outline-dark">
                         Add Recipe <i class="fas fa-plus-square right"></i>
                     </button>
                 </div>
             </div>
         </form>
+    </div>
     </div>
 
 {% endblock %}
