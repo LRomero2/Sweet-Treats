@@ -126,7 +126,7 @@
         
 
   <!-- Page Header -->
-  <header class="masthead" style="background-image:"{{ url_for('static', filename='imgs/colorful_cookies.jpg') }}">
+  <header class="masthead" style="background-image:{{ url_for('static', filename='imgs/colorful_cookies.jpg') }}">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
@@ -145,8 +145,10 @@
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for message in messages %}
+                <div class="container-fluid text-center">
                     <div class="row flashes">
                         <h4 class="light-blue lighten-4 center-align">{{ message }}</h4>
+                    </div>
                     </div>
                 {% endfor %}
             {% endif %}

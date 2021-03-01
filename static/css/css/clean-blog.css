@@ -463,3 +463,12 @@ div #register-button {
     padding:10px;
 }
 
+i{
+ background:-moz-linear-gradient(top, #b609eb 0%,  #f315bb 50%, #e78c14 100%); 
+        background: -webkit-linear-gradient(top, #b609eb 0%,  #f315bb 50%, #e78c14 100%);
+        background: linear-gradient(top, #b609eb 0%,  #f315bb 50%, #e78c14 100%);
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+       -webkit-text-fill-color:transparent;
+}

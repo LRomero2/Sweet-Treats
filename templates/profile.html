@@ -13,7 +13,7 @@
                 </div>
                 <div class="row justify-content-center">
                 <div id="search-buttons">
-                    <a href="{{ url_for('get_recipes') }}" class="btn btn-outline-dark">Reset</a>
+                    <a href="{{ url_for('profile', username=session['user']) }}" class="btn btn-outline-dark">Reset</a>
                     <button class="btn btn-outline-info" type="submit" id="search-button">
                         <i class="fas fa-search left"></i> Search</button>
                 </div>
@@ -68,7 +68,7 @@
   </div>
 </div>
 <!-- Vertically centered modal -->
-<div class="modal-dialog modal-dialog-centered" tabindex="-1" role="dialog">
+<div class="modal-dialog-centered" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
