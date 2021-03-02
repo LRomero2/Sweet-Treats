@@ -475,11 +475,12 @@ div #register-button {
 
 
 header.masthead{
-    background-image: url("../imgs/colorful_cookies.jpg");
+    background-image: url("../../imgs/colorful_cookies.jpg");
 }
 
 section#footer-photo{
-background-image: url("../img/social-media.jpg");
+background-image: url("../../img/social-media.jpg");
 width:100%;
-height:250px;
+height:500px;
+background-size: cover;
 }
