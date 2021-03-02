@@ -453,11 +453,11 @@ section #footer-photo .container-fluid{
 }
 
 
-
+/*
 div .input-field{
     padding:10px;
 }
-
+*/
 
 div #register-button {
     padding:10px;
@@ -504,5 +504,13 @@ figcaption{
 
 div#profile-welcome{
     padding-top:40px;
-     padding-bottom:30px;
+    padding-bottom:30px;
+}
+
+div.accordion {
+width:60%;
+}
+
+div#search-bar-input{
+    width:40%;
 }
