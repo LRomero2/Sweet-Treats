@@ -463,7 +463,7 @@ div #register-button {
     padding:10px;
 }
 
-i{
+#features i{
  background:-moz-linear-gradient(top, #b609eb 0%,  #f315bb 50%, #e78c14 100%); 
         background: -webkit-linear-gradient(top, #b609eb 0%,  #f315bb 50%, #e78c14 100%);
         background: linear-gradient(top, #b609eb 0%,  #f315bb 50%, #e78c14 100%);
@@ -471,4 +471,15 @@ i{
         -moz-background-clip: text;
         background-clip: text;
        -webkit-text-fill-color:transparent;
+}
+
+
+header.masthead{
+    background-image: url("../imgs/colorful_cookies.jpg");
+}
+
+section#footer-photo{
+background-image: url("../img/social-media.jpg");
+width:100%;
+height:250px;
 }
