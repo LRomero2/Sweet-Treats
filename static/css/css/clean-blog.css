@@ -484,3 +484,25 @@ width:100%;
 height:500px;
 background-size: cover;
 }
+
+
+blockquote{
+    padding-top:20px;
+}
+
+figcaption{
+    padding-bottom:50px;
+}
+
+#card-images{
+    padding-bottom:50px;
+}
+
+.cardimg{
+    height:22rem;
+}
+
+div#profile-welcome{
+    padding-top:40px;
+     padding-bottom:30px;
+}
