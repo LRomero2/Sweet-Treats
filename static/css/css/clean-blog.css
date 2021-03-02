@@ -502,6 +502,10 @@ figcaption{
     height:22rem;
 }
 
+.card{
+    margin: auto !important;
+}
+
 div#profile-welcome{
     padding-top:40px;
     padding-bottom:30px;
