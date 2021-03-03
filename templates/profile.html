@@ -106,3 +106,108 @@
 {% endif %}
 
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% extends "base.html" %}
+{% block content %}
+
+ {% if session.user %}
+<div id="tab-search" class="row card-panel col s12 m12 white">
+        <form id="search-bar" action="{{ url_for('search') }}" method="post">
+            <div class="row valign-wrapper center-align">
+                <div class="input-field">
+                    <input type="text" name="query" id="query" minlength="3" class="validate" required>
+                    <label for="query">Search Recipes</label>
+                </div>
+                </div>
+                <div class="row valign-wrapper center-align">
+                <div id="search-buttons">
+                    <a href="{{ url_for('get_recipes') }}" class="blue darken-2 btn text-shadow">Reset</a>
+                    <button type="submit" class="orange lighten-2 btn text-shadow" id="search-button">
+                        <i class="fas fa-search left"></i> Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    {% endif %}
+    
+
+
+    <div class="row">
+        <div class="col s12 m8 offset-m2">
+            <div class="card-panel">
+                <h3 class="center-align light-grey-text text-darken 4">
+                    {{ username }}'s profile
+                </h3>
+            </div>
+        </div>
+    </div>
+    <h6>Hey, {{ username }}. Here is a Full Index of Our Recipes.</h6>
+   
+{% if recipes|length > 0 %}
+
+
+<ul class="collapsible popout">
+    <div class="row">
+    <div class="col s12 m7">
+    </div>
+    </div>
+        {% for recipe in recipes %}
+        <li>
+            <div class="collapsible-header black-text orange lighten-3">
+                <div class="col s3">
+                    <i class="fas fa-caret-down"></i>
+                     {% if session.user|lower == recipe.created_by|lower %}
+ <!-- Modal Trigger -->
+  <button data-target="modal1" class="btn deep-orange accent-4 modal-trigger">Delete</button>
+
+<!-- Modal Structure -->
+    <div id="modal1" class="modal">
+    <div class="modal-content">
+         <h4>You are About to Delete</h4>
+         <p>Are you sure you want to delete this recipe?</p>
+    </div>
+     <div class="modal-footer">
+         <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="modal-close waves-effect waves-green btn-flat">Yes</a>
+         <a href="#!" class="modal-close waves-effect waves-red btn-flat">No</a>
+    </div>
+    </div>
+         <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small amber accent-2 lighten-1">Edit</a>
+                    {% endif %}
+                </div>
+    <div class="col s9">
+        <strong>{{ recipe.recipe_name }}</strong> : {{ recipe.due_date }}
+        {% if recipe.is_urgent == "on" %}
+        <i class="fas fa-star yellow-text text-shadow tooltipped"
+        data-position="right" data-tooltip="I'm a Favourite"></i>
+        {% endif %}
+    </div>
+             </div>
+            <div class="collapsible-body">
+                <strong>{{ recipe.category_name }}</strong>
+                <p>{{ recipe.recipe_description }}</p>
+                <p><em>by: {{ recipe.created_by }}</em></p>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+     {% else %}
+ <h3 class="red-text text-darken-4 center-align">No Results Found</h3>
+{% endif %}
+
+
+
+{% endblock %}

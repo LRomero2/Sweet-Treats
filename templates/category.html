@@ -21,6 +21,7 @@
                     </ul> 
                 </p>
             </label>
+           
   </div>
    <a href="{{ url_for('display_recipe', recipe_id=recipe._id)}}">Show the Method</a>
   <select class="custom-select" id="category_name" name="category_name" required>
@@ -36,7 +37,7 @@
 </div>
 </div>
 </div>
-
 {% endfor %}
+
 
 {% endblock %}
