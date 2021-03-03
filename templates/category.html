@@ -3,38 +3,38 @@
 
 
 {% for recipe in recipes %}
- <!-- recipe card -->
-<div class="row">
-    <div class="col-sm-12 col-md-6">
-        <div>
-            <div>
-                <span class="card-title">
-      {{ recipe.recipe_name }}
-                </span>
-                <p class="ing-rec">Ingredients:
+
+<div class="container justify-content-center shadow p-3 mb-5 bg-body rounded">
+     <!-- Heading -->
+     <div class="row justify-content-center">
+<h3 class="text-center">{{ recipe.recipe_name }}</h3>
+</div>
+    <div class="row">
+<div class="input-group mb-3 col-10">
+  <div class="input-group-prepend">
+    <label class="input-group-text">
+        <p class="ing-rec">Ingredients:
                     <ul> 
                         {% for ingredient in recipe.ingredients %}
                          <li class="ing-rec">{{ ingredient }}</li>
                         {% endfor %}
                     </ul> 
                 </p>
-            </div>
-            <div class="card-action">
-                <a href="{{ url_for('display_recipe', recipe_id=recipe._id)}}">Show the Method</a>
-                <a class="dropdown-trigger orange darken-1 btn" href="#" data-target="dropdown3">Buy the Ingredients</a>
-                <ul id="dropdown3" class="dropdown-content">
-                    <li><a href="https://www.amazon.co.uk/ref=nav_logo" target="_blank"><img class="logo" 
+            </label>
+  </div>
+   <a href="{{ url_for('display_recipe', recipe_id=recipe._id)}}">Show the Method</a>
+  <select class="custom-select" id="category_name" name="category_name" required>
+    <option selected>Buy the Ingredients</option>
+<option value="{{ category.category_name }}"><a href="https://www.amazon.co.uk/ref=nav_logo" target="_blank"><img class="logo" 
                         src="https://browser-d0d4bab4-3203-42f7-9427-2507f859b0d3.ws-eu03.gitpod.io/workspace/Sweet-Treats/static/imgs/amazonimage.png"
-                         alt="amazon_logo">Amazon</a></li>
-                    <li><a href="https://www.tesco.com/" target="_blank"><img class="logo" 
+                         alt="amazon_logo">Amazon</a></option>
+                            <option value="{{ category.category_name }}"><a href="https://www.tesco.com/" target="_blank"><img class="logo" 
                         src="https://browser-d0d4bab4-3203-42f7-9427-2507f859b0d3.ws-eu03.gitpod.io/workspace/Sweet-Treats/static/imgs/tescologo.jpg" 
-                        alt="tesco_logo">Tesco</a></li>
-                </ul>
-
-
-            </div>      
-        </div>
-    </div>
+                        alt="tesco_logo">Tesco</a></option>
+                        
+  </select>
+</div>
+</div>
 </div>
 
 {% endfor %}
