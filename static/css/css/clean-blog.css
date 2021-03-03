@@ -3,6 +3,9 @@
  * Copyright 2013-2020 Start Bootstrap
  * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-clean-blog/blob/master/LICENSE)
  */
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap');
+
+
 
 body {
   font-size: 20px;
@@ -453,12 +456,6 @@ section #footer-photo .container-fluid{
 }
 
 
-/*
-div .input-field{
-    padding:10px;
-}
-*/
-
 div #register-button {
     padding:10px;
 }
@@ -490,9 +487,20 @@ blockquote{
     padding-top:20px;
 }
 
+blockquote h2{
+font-family: 'Dosis', sans-serif;
+color:black;
+}
+
 figcaption{
     padding-bottom:50px;
 }
+
+figcaption.blockquote-footer{
+ font-family: 'Dosis', sans-serif;
+ color:black;
+}
+
 
 #card-images{
     padding-bottom:50px;
