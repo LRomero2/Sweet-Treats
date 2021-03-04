@@ -2,9 +2,9 @@
 {% block content %}
 
 
-{% for recipe in recipes %}
 
 <div class="container justify-content-center shadow p-3 mb-5 bg-body rounded">
+      {% for recipe in recipes %}
      <!-- Heading -->
      <div class="row justify-content-center">
 <h3 class="text-center">{{ recipe.recipe_name }}</h3>
@@ -21,7 +21,7 @@
                     </ul> 
                 </p>
             </label>
-           
+            {% endfor %}
   </div>
    <a href="{{ url_for('display_recipe', recipe_id=recipe._id)}}">Show the Method</a>
   <select class="custom-select" id="category_name" name="category_name" required>
@@ -32,12 +32,12 @@
                             <option value="{{ category.category_name }}"><a href="https://www.tesco.com/" target="_blank"><img class="logo" 
                         src="https://browser-d0d4bab4-3203-42f7-9427-2507f859b0d3.ws-eu03.gitpod.io/workspace/Sweet-Treats/static/imgs/tescologo.jpg" 
                         alt="tesco_logo">Tesco</a></option>
-                        
+                      
   </select>
 </div>
+</div>  
 </div>
-</div>
-{% endfor %}
+
 
 
 {% endblock %}

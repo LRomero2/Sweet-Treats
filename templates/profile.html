@@ -59,8 +59,8 @@
 <div class="accordion shadow p-3 mb-5 bg-body rounded" id="accordionExample">
     
   <div class="card text-center">
-<div class="card-header" id="headingOne">
-        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+<div class="card-header" id="heading{{loop.index}}">
+        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse{{loop.index}}" aria-expanded="true" aria-controls="collapse{{loop.index}}">
         <h3><strong>{{ recipe.recipe_name }}</strong> : {{ recipe.due_date }}</h3>
         </button>
         
@@ -95,7 +95,7 @@
         </div>
     </div>
 </div>----------------->
-<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+<div id="collapse{{loop.index}}" class="collapse show" aria-labelledby="heading{{loop.index}}" data-parent="#accordionExample">
             <div class="card-body text-center">
                 <strong>{{ recipe.category_name }}</strong>
                 <p>{{ recipe.recipe_description }}</p>
