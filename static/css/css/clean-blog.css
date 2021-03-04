@@ -467,9 +467,9 @@ div #register-button {
 }
 
 #features i{
- background:-moz-linear-gradient(top, #b609eb 0%,  #f315bb 50%, #e78c14 100%); 
-        background: -webkit-linear-gradient(top, #b609eb 0%,  #f315bb 50%, #e78c14 100%);
-        background: linear-gradient(top, #b609eb 0%,  #f315bb 50%, #e78c14 100%);
+ background:-moz-linear-gradient(top, #0925c4 0%,  #f315bb 50%, #e78c14 80%, #ffae44 100%); 
+        background: -webkit-linear-gradient(top, #0925c4 0%,  #f315bb 50%, #e78c14 80%, #ffae44 100%);
+        background: linear-gradient(top, #0925c4 0%,  #f315bb 50%, #e78c14 80%, #ffae44 100%);
         -webkit-background-clip: text;
         -moz-background-clip: text;
         background-clip: text;
@@ -547,3 +547,15 @@ div#search-bar-input{
     width:40%;
 }
 
+div.device-mockup{
+    padding:40px;
+}
+
+div#feature-items{
+    padding:40px;
+}
+
+.no-gutters{
+     margin-right: 0;
+  margin-left: 0;
+}
