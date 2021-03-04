@@ -43,79 +43,70 @@
 
 
 
-   {% if recipes|length > 0 %}
-<div class="accordion" id="accordionExample">
-  <div class="card">
-    <div class="card-header" id="headingOne">
-      <h2 class="mb-0">
-        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        </button>
-        {% for recipe in recipes %}
-        </h2>
-        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-      <div class="card-body">
-           <strong>{{ recipe.recipe_name }}</strong> : {{ recipe.due_date }}
-        {% if recipe.is_urgent == "on" %}
-        <i class="fas fa-star yellow-text text-shadow tooltipped"
-        data-bs-toggle="tooltip" data-bs-placement="top" title="I'm a Favourite"></i>
-        {% endif %}
-         {% if session.user|lower == recipe.created_by|lower %}
-         <!-- Modal Trigger -->
-         <!-- Button trigger modal -->
-         <button type="button" class="btn btn-outline-danger modal-trigger" data-toggle="modal" data-target="#staticBackdrop">
-  Delete
-</button>
-<a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
-<button type="button" class="btn btn-outline-warning modal-trigger" data-target="#staticBackdrop">
-  Edit
-</button>
-</a>
-{% endif %}
-      </div>
-    </div>
-  </div>
-    </div>
 
+
+
+
+
+
+
+
+
+
+{% if recipes|length > 0 %}
+<div class="container justify-content-center">
+    {% for recipe in recipes %}
+<div class="accordion shadow p-3 mb-5 bg-body rounded" id="recipe-accordion">
     
-
-
-
-<!-- Modal -->
-<div class="modal fade modal-dialog modal-dialog-centered" id=" {loop.index}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="card text-center">
+<div class="card-header" id="headingOne">
+        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <h3><strong>{{ recipe.recipe_name }}</strong> : {{ recipe.due_date }}</h3>
+        </button>
+        
+</div>
+                     {% if session.user|lower == recipe.created_by|lower %}
+ <!-- Modal Trigger -->
+  <button type="button" class="btn btn-outline-danger modal-trigger" data-toggle="modal" data-target="#staticBackdrop">Delete</button>
+ <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" type="button" class="btn btn-outline-warning modal-trigger" 
+         data-target="#staticBackdrop">Edit</a>
+                    {% endif %}
+<!-- Modal Structure --
+    <div class="modal fade modal-dialog modal-dialog-centered" id="{loop.index}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">You are About to Delete</h5>
+          <h5 class="modal-title" id="staticBackdropLabel">You are About to Delete</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <p>Are you sure you want to delete this recipe?</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="modal-close btn btn-success" data-dismiss="modal"><a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}"></a>Yes</button>
-        <button type="button" class="modal-close btn btn-danger" data-dismiss="modal">No<a href="#!"></a></button>
-      </div>
+         <p>Are you sure you want to delete this recipe?</p>
     </div>
-  </div>
-</div>
-
-  {% endfor %}
-
-
-{% else %}
- <h3 class="text-center">No Results Found</h3>
+     <div class="modal-footer">
+         <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" type="button" class="modal-close btn btn-success" data-dismiss="modal">Yes</a>
+         <a href="#!" type="button" class="modal-close btn btn-danger" data-dismiss="modal">No</a>
+        </div>
+    </div>
+</div>----------------->
+<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body text-center">
+                <strong>{{ recipe.category_name }}</strong>
+                <p>{{ recipe.recipe_description }}</p>
+                <p><em>by: {{ recipe.created_by }}</em></p>
+                 {% if recipe.is_urgent == "on" %}
+        <i class="fas fa-star tooltipped"
+        data-bs-toggle="tooltip" data-bs-placement="top" title="I'm a Favourite"></i>
+        {% endif %}
+            </div>
+            </div>
+        </div>
+        </div>
+        </div>
+        {% endfor %}
+    
+     {% else %}
+<h3 class="text-center">No Results Found</h3>
 {% endif %}
 
 {% endblock %}
-
-
-
-
-
-
-
-
-
-
