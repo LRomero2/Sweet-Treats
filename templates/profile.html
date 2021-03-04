@@ -54,9 +54,9 @@
 
 
 {% if recipes|length > 0 %}
+{% for recipe in recipes %}
 <div class="container justify-content-center">
-    {% for recipe in recipes %}
-<div class="accordion shadow p-3 mb-5 bg-body rounded" id="recipe-accordion">
+<div class="accordion shadow p-3 mb-5 bg-body rounded" id="accordionExample">
     
   <div class="card text-center">
 <div class="card-header" id="headingOne">
@@ -67,9 +67,15 @@
 </div>
                      {% if session.user|lower == recipe.created_by|lower %}
  <!-- Modal Trigger -->
-  <button type="button" class="btn btn-outline-danger modal-trigger" data-toggle="modal" data-target="#staticBackdrop">Delete</button>
- <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" type="button" class="btn btn-outline-warning modal-trigger" 
+ <div class="row justify-content-center">
+    <div class="col">
+      <a href="#" type="button" class="btn btn-outline-danger modal-trigger" data-toggle="modal" data-target="#staticBackdrop">Delete</a>
+    </div>
+    <div class="col">
+       <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" type="button" class="btn btn-outline-warning modal-trigger" 
          data-target="#staticBackdrop">Edit</a>
+    </div>
+    </div>
                     {% endif %}
 <!-- Modal Structure --
     <div class="modal fade modal-dialog modal-dialog-centered" id="{loop.index}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
