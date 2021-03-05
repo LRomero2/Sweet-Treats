@@ -2,43 +2,51 @@
 {% block content %}
 
  <!-- recipe title -->
-<div class="container">
-    <div class="row"  id="ingredients-under-heading">
-        <div class="col-sm-12 col-md-6" id="bg-recipe-heading">
-             <div class="recipe-heading">
-             <h3 class="recipe-name">{{ recipe.recipe_name }}</h3>
-             </div>
-        </div>
-             <div class="col-sm-12 col-md-6"><h4 id="ingredients-heading">Ingredients:</h4></div>
-            <span>
+<div class="container justify-content-center shadow p-3 mb-5 bg-body rounded">
+     
+     <!-- Heading -->
+     <div class="row justify-content-center">
+<h3 class="text-center">{{ recipe.recipe_name }}</h3>
+</div>
+   <div class="row">
+<div class="input-group mb-3 col-10">
+  <div class="input-group-prepend">
+    <label class="input-group-text">
+        <p class="ing-rec">Ingredients:
                     <ul> 
                         {% for ingredient in recipe.ingredients.splitlines() %}
                           <li>{{ ingredient }}</li>
                         {% endfor %}
                     </ul> 
-            </span>
-    </div>
-</div>
-<!-- recipe method -->
-<div class="container">
-     <div class="row">
-     <div class="col-sm-12">
-         <div class="card-panel grey lighten-5 z-depth-1">
-         <div class="row valign-wrapper">
-         <div id="method-list">
-                 <div><i class="fas fa-blender"></i> Method</div>
-                 <span>
-                 <ol> 
+                </p>
+            </label>
+           </div> 
+           </div> 
+  </div>
+ <div class="row">
+<div class="input-group mb-3 col-10">
+  <div class="input-group-prepend">
+    <label class="input-group-text">
+        <p class="ing-rec">Ingredients:
+                    <ol> 
                         {% for method in recipe.method.splitlines() %}
                           <li> {{ method }}</li>
                         {% endfor %}
-                 </ol> 
-                 </span>
-         </div>
-         </div>
-         </div>
-     </div>
-     </div>
+                    </ol> 
+                </p>
+            </label>
+           </div> 
+           </div> 
+  </div>
+
+  <select class="custom-select col-6" id="category_name" name="category_name" required>
+    <option selected>Buy the Ingredients from...</option>
+<option><a href="https://www.amazon.co.uk/ref=nav_logo" target="_blank" rel="noopener noreferrer">Amazon</a></option>
+<option><a href="https://www.tesco.com/" target="_blank" rel="noopener noreferrer">Tesco</a></option>                
+  </select>
+  <div>
+   <a href="{{ url_for('display_recipe', recipe_id=recipe._id)}}" class="btn btn-dark">Show the Method</a>
+   </div>
 </div>
 
 
