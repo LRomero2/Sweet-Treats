@@ -1,12 +1,35 @@
 {% extends "base.html" %}
 {% block content %}
 
- <!-- Heading -->
-<h3 class="text-center">Add Category</h3>
+ 
+<div class="container justify-content-center shadow p-3 mb-5 bg-body rounded">
+     <!-- Heading -->
+     <form>
+     <div class="row justify-content-center">
+<h2 class="text-center">Add Category</h2>
+</div>
+<div class="row">
+        <div class="input-group mb-3 col-6" method="POST" action="{{ url_for('add_category') }}">
+             
+    </div>        
+          </div> 
+  <div class="input-group-prepend">
+      <input id="category_name" name="category_name" minlength="3" maxlength="25"
+                        type="text" class="validate" required>
+    <label class="input-group-text" for="category_name" for="inputGroupSelect01">Category Name</label>
+  </div> 
+            
+           <div class="col-sm-10">
+      <button type="submit" class="btn btn-outline-dark">Add Category <i class="fas fa-plus-square right"></i></button>
+    </div>
+  </form>
+    </div>
 
-    <div class="row">
-        <form class="col-sm-12" method="POST" action="{{ url_for('add_category') }}">
-              <!-- category name -->
+{% endblock %}
+
+
+<!--------------------
+            <-- category name --
             <div class="row">
                 <div class="input-field col-sm-12">
                     <i class="fas fa-folder-open"></i>
@@ -15,7 +38,7 @@
                     <label for="category_name">Category Name</label>
                 </div>
             </div>
-         <!-- submit button -->
+         <-- submit button --
             <div class="row">
                 <div class="col-sm-12 justify-content-center">
                     <button type="submit" class="btn-large">
@@ -26,4 +49,5 @@
         </form>
     </div>
 
-{% endblock %}
+---------------->
+
