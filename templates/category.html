@@ -3,8 +3,9 @@
 
 
 
+ {% for recipe in recipes %}
 <div class="container justify-content-center shadow p-3 mb-5 bg-body rounded">
-      {% for recipe in recipes %}
+     
      <!-- Heading -->
      <div class="row justify-content-center">
 <h3 class="text-center">{{ recipe.recipe_name }}</h3>
@@ -21,23 +22,21 @@
                     </ul> 
                 </p>
             </label>
-            {% endfor %}
+           </div> 
+           </div> 
   </div>
-   <a href="{{ url_for('display_recipe', recipe_id=recipe._id)}}">Show the Method</a>
-  <select class="custom-select" id="category_name" name="category_name" required>
-    <option selected>Buy the Ingredients</option>
-<option value="{{ category.category_name }}"><a href="https://www.amazon.co.uk/ref=nav_logo" target="_blank"><img class="logo" 
-                        src="https://browser-d0d4bab4-3203-42f7-9427-2507f859b0d3.ws-eu03.gitpod.io/workspace/Sweet-Treats/static/imgs/amazonimage.png"
-                         alt="amazon_logo">Amazon</a></option>
-                            <option value="{{ category.category_name }}"><a href="https://www.tesco.com/" target="_blank"><img class="logo" 
-                        src="https://browser-d0d4bab4-3203-42f7-9427-2507f859b0d3.ws-eu03.gitpod.io/workspace/Sweet-Treats/static/imgs/tescologo.jpg" 
-                        alt="tesco_logo">Tesco</a></option>
-                      
+  <select class="custom-select col-6" id="category_name" name="category_name" required>
+    <option selected>Buy the Ingredients from...</option>
+<a href="https://www.amazon.co.uk/ref=nav_logo" target="_blank" rel="noopener noreferrer"><option>Amazon</option></a>
+                            <a href="https://www.tesco.com/" target="_blank" rel="noopener noreferrer"><option>Tesco</option></a>
+                   
   </select>
-</div>
-</div>  
+  <div>
+   <a href="{{ url_for('display_recipe', recipe_id=recipe._id)}}" class="btn btn-dark">Show the Method</a>
+   </div>
 </div>
 
+{% endfor %}
 
 
 {% endblock %}
