@@ -99,7 +99,7 @@ def profile(username):
     if session["user"]:
         recipes = list(mongo.db.recipes.find())
         return render_template("profile.html",
-               recipes=recipes, username=username)
+                               recipes=recipes, username=username)
 
     return redirect(url_for("login"))
 
@@ -155,7 +155,7 @@ def edit_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("edit_recipe.html",
-    recipe=recipe, categories=categories)
+                           recipe=recipe, categories=categories)
 
 
 @app.route("/delete_recipe/<recipe_id>")
@@ -207,32 +207,34 @@ def delete_category(category_id):
 
 @app.route("/display_category/<category_name>")
 def display_category(category_name):
-    recipes_in_category = list(mongo.db.recipes.find({"category_name": category_name}))
+    recipes_in_category = list(mongo.db.recipes.find
+                               ({"category_name": category_name}))
     for recipe in recipes_in_category:
         if 'ingredients' in recipe:
             recipe["ingredients"] = recipe["ingredients"].split(',')
-    return render_template("category.html", recipes = recipes_in_category)
+    return render_template("category.html", recipes=recipes_in_category)
 
 
 @app.route("/display_recipe/<recipe_id>")
 def display_recipe(recipe_id):
-    recipes_in_category = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    return render_template("display_recipe.html", recipe = recipes_in_category)
+    recipes_in_category = mongo.db.recipes.find_one({"_id": ObjectId
+                                                    (recipe_id)})
+    return render_template("display_recipe.html", recipe=recipes_in_category)
 
 
 @app.route("/display_ingredients/<ingredients_id>")
 def display_ingredients(ingredients_id):
-    recipes_in_category = mongo.db.recipes.find({"_id": ObjectId(ingredients_id)})
+    recipes_in_category = mongo.db.recipes.find({"_id": ObjectId
+                                                (ingredients_id)})
     ingredients = recipes_in_category.ingredients.split(',')
     print(ingredients)
     return render_template("display_recipe.html",
-               ingredients = ingredients_in_recipe)
-    return render_template("category.html", ingredients = ingredients_in_recipe)
+                           ingredients=ingredients_in_recipe)
+    return render_template("category.html",
+                           ingredients=ingredients_in_recipe)
 
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)
-
-            
