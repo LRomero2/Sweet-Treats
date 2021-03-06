@@ -580,3 +580,46 @@ div#recipe-desc{
     color:#0925c4; 
     align-content: center;  
 }
+
+
+
+#display-recipe-container{
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 35s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+#display-recipe-container h2{
+color:white;
+text-shadow: black 2px 2px;
+}
+
+
+#display-recipe-container h3{
+    color:white;
+    text-shadow: black 2px 2px;
+}
+
+
+#display-recipe-container li{
+    color:white;
+     text-shadow: rgb(95, 94, 94) 1px 1px;
+}
+
+#display-recipe-container strong{
+    color:white;
+     text-shadow: rgb(95, 94, 94) 1px 1px;
+}
