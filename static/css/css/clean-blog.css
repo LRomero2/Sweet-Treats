@@ -559,3 +559,18 @@ div#feature-items{
      margin-right: 0;
   margin-left: 0;
 }
+
+h2.h2-profile-cards{
+    color:black;
+    font-family: 'Dosis', sans-serif;
+}
+
+
+h2.text-center{
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+div#recipe-desc{
+    padding-bottom: 15px;
+}
