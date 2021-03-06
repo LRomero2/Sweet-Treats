@@ -574,3 +574,9 @@ h2.text-center{
 div#recipe-desc{
     padding-bottom: 15px;
 }
+
+.flashes h2 {
+    line-height: 2;
+    color:#0925c4; 
+    align-content: center;  
+}
