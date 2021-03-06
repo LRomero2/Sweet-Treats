@@ -75,7 +75,7 @@
   <img src="{{ url_for('static', filename='imgs/truffles.jpg') }}" class="card-img-top" alt="trufflesimage">
   <div class="card-body">
     <h5 class="card-title">Truffles & Candies</h5>
-    <a href="('{{ url_for('static', filename='imgs/truffles.jpg') }}')" class="btn btn-outline-dark">Take a Look</a>
+    <a href="{{ url_for('display_category', category_name='truffles_candies')}}" class="btn btn-outline-dark">Take a Look</a>
   </div>
 </div>
 </div>
