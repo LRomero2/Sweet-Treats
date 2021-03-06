@@ -51,7 +51,7 @@
                     <div class="card-header" id="heading{{loop.index}}">
                         <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
                             data-target="#collapse{{loop.index}}" aria-expanded="true" aria-controls="collapse{{loop.index}}">
-                            <h3><strong>{{ recipe.recipe_name }}</strong> : {{ recipe.due_date }}</h3>
+                            <h3><strong>{{ recipe.recipe_name }}</strong></h3>
                         </button>
 
                     </div>
@@ -74,7 +74,8 @@
                         <div class="card-body text-center">
                             <strong>{{ recipe.recipe_description }}</strong>
                             <p>Category: {{ recipe.category_name }}</p>
-                            <p><em>By: {{ recipe.created_by }}</em></p>
+                            <p>Date Created: {{ recipe.due_date }}</p>
+                            <p><em>Created By: {{ recipe.created_by }}</em></p>
                             {% if recipe.is_urgent == "on" %}
                                 <p>Favourite <i class="fas fa-star tooltipped" data-bs-toggle="tooltip" data-bs-placement="top"
                                         title="I'm a Favourite"></i>
