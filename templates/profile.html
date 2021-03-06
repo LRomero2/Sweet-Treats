@@ -7,7 +7,7 @@
         <form id="search-bar" action="{{ url_for('search') }}" method="post">
             <div class="row justify-content-center">
                 <div class="input-field" id="search-bar-input">
-                    <input class="form-control mr-sm-2" name="query" id="query" minlength="3" class="validate" type="search" placeholder="Search Recipes" aria-label="Search" required>
+                    <input class="form-control mr-sm-2 validate" name="query" id="query" minlength="3" type="search" placeholder="Search Recipes" aria-label="Search" required>
                     <label for="query"></label>
                 </div>
                 </div>
@@ -43,72 +43,77 @@
 
 
 {% if recipes|length > 0 %}
-{% for recipe in recipes %}
-<div class="container justify-content-center">
-<div class="accordion shadow p-3 mb-5 bg-body rounded" id="accordionExample">
-    
-  <div class="card text-center">
-<div class="card-header" id="heading{{loop.index}}">
-        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse{{loop.index}}" aria-expanded="true" aria-controls="collapse{{loop.index}}">
-        <h3><strong>{{ recipe.recipe_name }}</strong> : {{ recipe.due_date }}</h3>
-        </button>
-        
-</div>
-                     {% if session.user|lower == recipe.created_by|lower %}
- <!-- Modal Trigger -->
- <div class="row justify-content-center">
-    <div class="col">
-      <a href="#exampleModal" type="button" class="btn btn-outline-danger modal-trigger" data-toggle="modal" data-target="#exampleModal">Delete</a>
-    </div>
-    <div class="col">
-       <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" type="button" class="btn btn-outline-warning modal-trigger" 
-         >Edit</a>
-    </div>
-    </div>
+    {% for recipe in recipes %}
+        <div class="container justify-content-center">
+            <div class="accordion shadow p-3 mb-5 bg-body rounded" id="accordionExample">
+
+                <div class="card text-center">
+                    <div class="card-header" id="heading{{loop.index}}">
+                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                            data-target="#collapse{{loop.index}}" aria-expanded="true" aria-controls="collapse{{loop.index}}">
+                            <h3><strong>{{ recipe.recipe_name }}</strong> : {{ recipe.due_date }}</h3>
+                        </button>
+
+                    </div>
+                    {% if session.user|lower == recipe.created_by|lower %}
+                        <!-- Modal Trigger -->
+                        <div class="row justify-content-center">
+                            <div class="col">
+                                <a href="#exampleModal" type="button" class="btn btn-outline-danger modal-trigger"
+                                    data-toggle="modal" data-target="#modal-{{ recipe._id }}">Delete</a>
+                            </div>
+                            <div class="col">
+                                <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" type="button"
+                                    class="btn btn-outline-warning modal-trigger">Edit</a>
+                            </div>
+                        </div>
                     {% endif %}
 
-<div id="collapse{{loop.index}}" class="collapse show" aria-labelledby="heading{{loop.index}}" data-parent="#accordionExample">
-            <div class="card-body text-center">
-                <strong>{{ recipe.recipe_description }}</strong>
-                <p>Category: {{ recipe.category_name }}</p>
-                <p><em>By: {{ recipe.created_by }}</em></p>
-                 {% if recipe.is_urgent == "on" %}
-                 <p>Favourite <i class="fas fa-star tooltipped"
-        data-bs-toggle="tooltip" data-bs-placement="top" title="I'm a Favourite"></i></p>
-
-        {% endif %}
+                    <div id="collapse{{loop.index}}" class="collapse show" aria-labelledby="heading{{loop.index}}"
+                        data-parent="#accordionExample">
+                        <div class="card-body text-center">
+                            <strong>{{ recipe.recipe_description }}</strong>
+                            <p>Category: {{ recipe.category_name }}</p>
+                            <p><em>By: {{ recipe.created_by }}</em></p>
+                            {% if recipe.is_urgent == "on" %}
+                                <p>Favourite <i class="fas fa-star tooltipped" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        title="I'm a Favourite"></i>
+                                </p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+
+        <!-----------modal------------->
+        <div class="modal" tabindex="-1" id="modal-{{ recipe._id }}">
+            <div class="modal-dialog">
+                <div class="modal-content" id="{loop.index}">
+                    <div class="modal-header">
+                        <h5 class="modal-title">You are About to Delete</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to delete this recipe?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                        <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn btn-success">
+                            Yes, Delete Recipe
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-        </div>
-        </div>
 
-<!-----------modal------------->
-<div class="modal" tabindex="-1" id="#exampleModal">
-  <div class="modal-dialog">
-    <div class="modal-content" id="{loop.index}">
-      <div class="modal-header">
-        <h5 class="modal-title">You are About to Delete</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Are you sure you want to delete this recipe?</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
-        <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" type="button" data-dismiss="modal"><button type="button" class="btn btn-success">Yes, Delete Recipe</button></a>
-      </div>
-    </div>
-  </div>
-</div>
-    
-      
-{% endfor %}
+    {% endfor %}
 
-     {% else %}
-<h3 class="text-center">No Results Found</h3>
+
+{% else %}
+    <h3 class="text-center">No Results Found</h3>
 {% endif %}
 
 {% endblock %}
