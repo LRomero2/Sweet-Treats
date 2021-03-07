@@ -44,16 +44,14 @@
 
 {% if recipes|length > 0 %}
     {% for recipe in recipes %}
-        <div class="container justify-content-center">
+        <div class="container">
             <div class="row justify-content-center">
-    <div class="col-12">
-            <div class="accordion shadow p-3 mb-5 bg-body rounded" id="accordionExample">
-
-                <div class="card text-center">
+    <div class="col-10 justify-content-center accordion shadow p-3 mb-5 bg-body rounded" id="accordionExample">
+            <div class="card text-center">
                     <div class="card-header" id="heading{{loop.index}}">
                         <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
                             data-target="#collapse{{loop.index}}" aria-expanded="true" aria-controls="collapse{{loop.index}}">
-                            <h2 class="h2-profile-cards"><strong>{{ recipe.recipe_name }}</strong></h2>
+                            <h2 class="h2-profile-cards text-center"><strong>{{ recipe.recipe_name }}</strong></h2>
                         </button>
 
                     </div>
@@ -89,7 +87,7 @@
             </div>
         </div>
          </div>
-        </div>
+        
 
         <!-----------modal------------->
         <div class="modal" tabindex="-1" id="modal-{{ recipe._id }}">
