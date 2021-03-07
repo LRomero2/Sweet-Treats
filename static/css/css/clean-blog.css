@@ -575,10 +575,9 @@ div#recipe-desc{
     padding-bottom: 15px;
 }
 
-.flashes h2 {
+#flash-messages {
     line-height: 2;
     color:#0925c4; 
-    align-content: center;  
 }
 
 #register-form1{
