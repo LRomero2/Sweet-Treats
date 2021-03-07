@@ -2,11 +2,25 @@
 {% block content %}
 
  {% if session.user %}
-<div class="container-fluid col-sm-10 col-8 justify-content-center">
+
+<div class="container" id="profile-welcome">
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <div class="card-panel">
+                <h3 class="text-center" id="profile-name">
+                    {{ username }}'s profile
+                </h3>
+            </div>
+        </div>
+    </div>
+
+
+
+<div class="container-fluid col-sm-12 justify-content-center">
 <div id="tab-search" class="container-fluid col-10 justify-content-center">
         <form id="search-bar" action="{{ url_for('search') }}" method="post">
             <div class="row justify-content-center">
-                <div class="input-field" id="search-bar-input">
+                <div class="input-field col-10" id="search-bar-input">
                     <input class="form-control mr-sm-2 validate" name="query" id="query" minlength="3" type="search" placeholder="Search Recipes" aria-label="Search" required>
                     <label for="query"></label>
                 </div>
@@ -21,25 +35,16 @@
         </form>
     </div>
     </div>
-    {% endif %}
-    
 
-<div class="container" id="profile-welcome">
-    <div class="row justify-content-center">
-        <div class="col-10">
-            <div class="card-panel">
-                <h3 class="text-center" id="profile-name">
-                    {{ username }}'s profile
-                </h3>
-            </div>
-        </div>
-    </div>
-    <div class="row justify-content-center">
+      <div class="row justify-content-center">
     <div class="col-10">
     <h4 class="text-center" id="profile-h">Hey, {{ username }}. <br> Here is a Full Index of Our Recipes.</h4>
     </div>
    </div>
    </div>
+
+    {% endif %}
+    
 
 
 {% if recipes|length > 0 %}
