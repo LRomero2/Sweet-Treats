@@ -28,7 +28,7 @@
     <div class="row justify-content-center">
         <div class="col-10">
             <div class="card-panel">
-                <h3 class="text-center">
+                <h3 class="text-center" id="profile-name">
                     {{ username }}'s profile
                 </h3>
             </div>
@@ -36,7 +36,7 @@
     </div>
     <div class="row justify-content-center">
     <div class="col-10">
-    <h6 class="text-center">Hey, {{ username }}. <br> Here is a Full Index of Our Recipes.</h6>
+    <h4 class="text-center" id="profile-h">Hey, {{ username }}. <br> Here is a Full Index of Our Recipes.</h4>
     </div>
    </div>
    </div>
@@ -45,6 +45,8 @@
 {% if recipes|length > 0 %}
     {% for recipe in recipes %}
         <div class="container justify-content-center">
+            <div class="row justify-content-center">
+    <div class="col-12">
             <div class="accordion shadow p-3 mb-5 bg-body rounded" id="accordionExample">
 
                 <div class="card text-center">
@@ -86,6 +88,8 @@
                 </div>
             </div>
         </div>
+         </div>
+        </div>
 
         <!-----------modal------------->
         <div class="modal" tabindex="-1" id="modal-{{ recipe._id }}">
@@ -114,7 +118,7 @@
 
 
 {% else %}
-    <h3 class="text-center">No Results Found</h3>
+    <h3 class="text-center">Sorry, No Results Found</h3>
 {% endif %}
 
 {% endblock %}
