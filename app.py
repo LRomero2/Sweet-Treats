@@ -149,7 +149,8 @@ def edit_recipe(recipe_id):
             "due_date": request.form.get("due_date"),
             "created_by": session["user"]
         }
-        mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)}, {"$set": submit })
+        mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)},
+                                    {"$set": submit})
         flash("Recipe Successfully Updated")
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
@@ -190,7 +191,8 @@ def edit_category(category_id):
         submit = {
             "category_name": request.form.get("category_name")
         }
-        mongo.db.categories.update({"_id": ObjectId(category_id)}, submit)
+        mongo.db.categories.update_one({"_id": ObjectId
+                                       (category_id)}, {"$set": submit})
         flash("Category Successfully Updated")
         return redirect(url_for("get_categories"))
 

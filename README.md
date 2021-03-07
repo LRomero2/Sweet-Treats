@@ -2,7 +2,7 @@
 You can see the live site here.
 https://sweet-treats-project.herokuapp.com/ 
 
-<img src="https://browser-d0d4bab4-3203-42f7-9427-2507f859b0d3.ws-eu03.gitpod.io/workspace/Sweet-Treats/static/imgs/thirdprojectscreenshot.jpg" style="margin: 0;">
+
 
 This project was an experiment to try and work with a database such as mongodb and python. This is my first attempt at 
 building an app with different languages and frameworks like this so i decided to keep it simple. 
@@ -100,9 +100,13 @@ descriptions, categories, footers, links and information about the recipes.
 
 **CSS** - I used some css to target and style elements individually to tailor the app to my preference.
 
-**Materialize CSS** - I used materialize to style nearly all of my app. I wanted to try this as I had never used it before. After gaining 
-knowledge of Materialze CSS I do prefer Bootstrap, but I'm glad I tried it to see how different it was and to see what I could learn by using it in this project.
+**Materialize CSS** - I used materialize to style nearly all of my app the first time however for the second submission of my app I used Bootstrap. 
+I wanted to try this as I had never used it before. After gaining knowledge of Materialze CSS I do prefer Bootstrap, 
+but I'm glad I tried it to see how different it was and to see what I could learn by using it in this project.
 https://materializecss.com/
+
+**Bootstrap** - For the second submission of my project I used Bootstrap and am much happier with the style and layout.
+https://getbootstrap.com/
 
 **JQuery** - This project uses JQuery to simplify DOM manipulation. The app uses Jquery to open modals, drop down menus, open the navbar on the mobile device,
 Open an accordion display of recipes and open the link options to buy the ingredients at two different stores.
@@ -172,7 +176,6 @@ from a recipe such as 'chocolate', then all the recipes that has that ingredient
 * I checked that the categories could be added, deleted and edited by the admin. Here is a photo of the manage cateory page. 
 Feel free to look at the admin's profile to be able to see this. The username is: admin. The password is:cookie.
 
-<img src="https://browser-d0d4bab4-3203-42f7-9427-2507f859b0d3.ws-eu03.gitpod.io/workspace/Sweet-Treats/static/imgs/managecatsscreenshot.jpg" style="margin: 0;">
 
 
 * I deployed the app and checked it on my phone however I discovered something crucial to the functionality of the search bar! 
