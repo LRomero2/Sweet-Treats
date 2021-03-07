@@ -3,38 +3,36 @@
 
 
 
- {% for recipe in recipes %}
+    {% for recipe in recipes %}
 <div class="container justify-content-center shadow p-3 mb-5 bg-body rounded">
      
      <!-- Heading -->
-     <div class="row justify-content-center">
-<h2 class="text-center">{{ recipe.recipe_name }}</h2>
-</div> 
-<div class="text-center" id="recipe-desc"><strong>{{ recipe.recipe_description }}</strong></div>
     <div class="row justify-content-center">
-<div class="input-group mb-3 col-4">
-  <div class="justify-content-center">
-    <label>
-        <h3 class="text-center">Ingredients:</h3>
-</label>
-           </div> 
-             <p>
-                 <ul>
-                        {% for ingredient in recipe.ingredients %}
-                         <li class="ing-rec">{{ ingredient }}</li>
-                        {% endfor %}
-                    </ul>
-                </p>
+        <h2 class="text-center">{{ recipe.recipe_name }}</h2>
+    </div>  <!-- category display -->
+            <div class="text-center" id="recipe-desc"><strong>{{ recipe.recipe_description }}</strong></div>
+                <div class="row justify-content-center">
+                    <div class="input-group mb-3 col-4">
+                        <div class="justify-content-center">
+                            <label><h3 class="text-center">Ingredients:</h3></label>
+                        </div> 
+                            <p>
+                            <ul>
+                            {% for ingredient in recipe.ingredients %}
+                            <li class="ing-rec">{{ ingredient }}</li>
+                            {% endfor %}
+                            </ul>
+                            </p>
             
-           </div> 
-  </div>
- 
-  <div class="text-center">
-   <a href="{{ url_for('display_recipe', recipe_id=recipe._id)}}" class="btn btn-dark">Show the Method</a>
-   </div>
+                    </div> 
+                </div>
+  <!-- submit buttons -->
+                <div class="text-center">
+                <a href="{{ url_for('display_recipe', recipe_id=recipe._id)}}" class="btn btn-dark">Show the Method</a>
+                </div>
 </div>
 
-{% endfor %}
+    {% endfor %}
 
 
 {% endblock %}

@@ -5,80 +5,80 @@
 
 <div class="container justify-content-center shadow p-3 mb-5 bg-body rounded">
      <!-- Heading -->
-     <form method="POST" action="{{ url_for('add_recipe') }}">
-     <div class="row justify-content-center">
-<h2 class="text-center">Add Recipe</h2>
-</div>
-    <div class="row">
-<div class="input-group mb-3 col-6">
-  <div class="input-group-prepend">
-    <label class="input-group-text" for="category_name" for="inputGroupSelect01">Recipe Category</label>
-  </div>
-  <select class="custom-select" id="category_name" name="category_name" required>
-    <option selected>Choose Category...</option>
-    {% for category in categories %}
-                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+    <form method="POST" action="{{ url_for('add_recipe') }}">
+    <div class="row justify-content-center">
+        <h2 class="text-center">Add Recipe</h2>
+    </div> <!-- add recipe form -->
+        <div class="row">
+            <div class="input-group mb-3 col-6">
+                <div class="input-group-prepend">
+                <label class="input-group-text" for="category_name" for="inputGroupSelect01">Recipe Category</label>
+                </div>
+                    <select class="custom-select" id="category_name" name="category_name" required>
+                    <option selected>Choose Category...</option>
+                        {% for category in categories %}
+                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
                         {% endfor %}
-  </select>
-</div>
+                    </select>
+            </div>
 
 
-<div class="input-group mb-3 col-10">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="inputGroup-sizing-default" for="recipe_name">Recipe Name</span>
-  </div>
-  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" 
-  id="recipe_name" name="recipe_name" minlength="5" maxlength="50" required>
-</div>
+            <div class="input-group mb-3 col-10">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default" for="recipe_name">Recipe Name</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" 
+                       id="recipe_name" name="recipe_name" minlength="5" maxlength="50" required>
+            </div>
 
-<div class="input-group mb-3 col-10">
-  <div class="input-group-prepend">
-    <span class="input-group-text" for="recipe_description">Recipe Description</span>
-  </div>
-  <textarea class="form-control" aria-label="With textarea" id="recipe_description" name="recipe_description" minlength="5"
-                        maxlength="200" required></textarea>
-</div>
+            <div class="input-group mb-3 col-10">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" for="recipe_description">Recipe Description</span>
+                </div>
+                <textarea class="form-control" aria-label="With textarea" id="recipe_description" name="recipe_description" minlength="5"
+                          maxlength="200" required></textarea>
+            </div>
 
-<div class="input-group mb-3 col-10">
-  <div class="input-group-prepend">
-    <span class="input-group-text" for="ingredients">Ingredients</span>
-  </div>
-  <textarea class="form-control" aria-label="With textarea" id="ingredients" name="ingredients" minlength="5"
-                        maxlength="300" required></textarea>
-</div>
+            <div class="input-group mb-3 col-10">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" for="ingredients">Ingredients</span>
+                </div>
+                    <textarea class="form-control" aria-label="With textarea" id="ingredients" name="ingredients" minlength="5"
+                              maxlength="300" required></textarea>
+            </div>
 
 
 
-<div class="input-group mb-3 col-10">
-  <div class="input-group-prepend">
-    <span class="input-group-text" for="method">Method -<br>Please add each step on a new line</span>
-  </div>
-  <textarea class="form-control" aria-label="With textarea" name="method" minlength="5"
-                        maxlength="2000" id="method" required></textarea>
-</div>
+            <div class="input-group mb-3 col-10">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" for="method">Method -<br>Please add each step on a new line</span>
+                </div>
+                    <textarea class="form-control" aria-label="With textarea" name="method" minlength="5"
+                              maxlength="2000" id="method" required></textarea>
+            </div>
 
- <div class="input-group mb-3 col-10">
-     <div class="input-group-prepend">
-    <label for="due_date" class="input-group-text col col-form-label">Date Created</label>
-    <div class="col">
-     <input id="due_date" name="due_date" type="date" class="datepicker validate" required>
-    </div>
-  </div>
-<div class="custom-control custom-switch">
-  <input id="is_urgent" name="is_urgent" type="checkbox" class="custom-control-input" id="customSwitch1">
-  <label for="is_urgent" class="custom-control-label" for="customSwitch1">Make Favourite</label>
-</div>
-  </div>
+            <div class="input-group mb-3 col-10">
+                <div class="input-group-prepend">
+                    <label for="due_date" class="input-group-text col col-form-label">Date Created</label>
+                <div class="col">
+                    <input id="due_date" name="due_date" type="date" class="datepicker validate" required>
+                </div>
+                </div>
+            <div class="custom-control custom-switch">
+                <input id="is_urgent" name="is_urgent" type="checkbox" class="custom-control-input" id="customSwitch1">
+                <label for="is_urgent" class="custom-control-label" for="customSwitch1">Make Favourite</label>
+            </div>
+            </div>
   
                 
-
-  <div class="input-group">
-    <div class="col-sm-10">
-      <button type="submit" class="btn btn-outline-success">Add Recipe <i class="fas fa-plus-square right"></i></button>
-    </div>
-  </div>
-</div>
-</form>
+ <!-- submit button -->
+            <div class="input-group">
+                <div class="col-sm-10">
+                <button type="submit" class="btn btn-outline-success">Add Recipe <i class="fas fa-plus-square right"></i></button>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
 
 

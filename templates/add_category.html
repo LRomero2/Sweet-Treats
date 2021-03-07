@@ -4,51 +4,26 @@
  
 <div class="container justify-content-center shadow p-3 mb-5 bg-body rounded">
      <!-- Heading -->
-     <form>
-     <div class="row justify-content-center">
-<h2 class="text-center">Add Category</h2>
-</div>
-<div class="row">
+<form>
+    <div class="row justify-content-center">
+         <h2 class="text-center">Add Category</h2>
+    </div>
+    <div class="row">
         <div class="input-group mb-3 col-6" method="POST" action="{{ url_for('add_category') }}">
              
-    </div>        
-          </div> 
-  <div class="input-group-prepend text-center justify-content-center">
-      <label class="input-group-text" for="category_name" for="inputGroupSelect01">Category Name</label>
-      <input id="category_name" name="category_name" minlength="3" maxlength="25"
-                        type="text" class="validate" required>
+        </div>        
+    </div> <!-- Category name input -->
+            <div class="input-group-prepend text-center justify-content-center">
+            <label class="input-group-text" for="category_name" for="inputGroupSelect01">Category Name</label>
+            <input id="category_name" name="category_name" minlength="3" maxlength="25"
+                   type="text" class="validate" required>
 
-  </div> 
-            
+            </div> 
+            <!-- Submit Button -->
            <div class="col-sm-12 text-center justify-content-center" id="add-cat-button">
-      <button type="submit" class="btn btn-outline-dark">Add Category <i class="fas fa-plus-square right"></i></button>
-    </div>
-  </form>
-    </div>
+           <button type="submit" class="btn btn-outline-dark">Add Category <i class="fas fa-plus-square right"></i></button>
+           </div>
+</form>
+</div>
 
 {% endblock %}
-
-
-<!--------------------
-            <-- category name --
-            <div class="row">
-                <div class="input-field col-sm-12">
-                    <i class="fas fa-folder-open"></i>
-                    <input id="category_name" name="category_name" minlength="3" maxlength="25"
-                        type="text" class="validate" required>
-                    <label for="category_name">Category Name</label>
-                </div>
-            </div>
-         <-- submit button --
-            <div class="row">
-                <div class="col-sm-12 justify-content-center">
-                    <button type="submit" class="btn-large">
-                        Add Category <i class="fas fa-plus-square right"></i>
-                    </button>
-                </div>
-            </div>
-        </form>
-    </div>
-
----------------->
-

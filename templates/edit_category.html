@@ -4,33 +4,30 @@
 
 <div class="container justify-content-center shadow p-3 mb-5 bg-body rounded">
      <!-- Heading -->
-     <form>
-      <div class="row justify-content-center">
-<h2 class="text-center">Edit Category</h2>
-</div>
-<div class="row">
-        <div class="input-group mb-3 col-6" method="POST" action="{{ url_for('edit_category', category_id=category._id) }}">
-             
-    </div>        
-          </div>
-<div class="input-group-prepend text-center justify-content-center" id="edit-cat-bar">
-     <label class="input-group-text" for="category_name" for="inputGroupSelect01">Category Name</label>
-      <input id="category_name" name="category_name" minlength="3" maxlength="25"
-                        type="text" class="validate" required>
-   
-  </div> 
+    <form>
+         <!-- display content -->
+        <div class="row justify-content-center">
+            <h2 class="text-center">Edit Category</h2>
+        </div>
+            <div class="row">
+                <div class="input-group mb-3 col-6" method="POST" action="{{ url_for('edit_category', category_id=category._id) }}">   
+                </div>        
+            </div>
+                <div class="input-group-prepend text-center justify-content-center" id="edit-cat-bar">
+                    <label class="input-group-text" for="category_name" for="inputGroupSelect01">Category Name</label>
+                    <input id="category_name" name="category_name" minlength="3" maxlength="25"
+                           type="text" class="validate" required>
+                </div> 
+                 <!-- submit buttons -->
             <div class="row text-center justify-content-center">
-    <div class="col-sm-10">
-  <a href="{{ url_for('get_categories') }}" class="btn btn-danger">
-                        Cancel</a>
-          
-      <a href="{{ url_for('edit_category', category_id=category._id) }}" type="button"
+                <div class="col-sm-10">
+                   <a href="{{ url_for('get_categories') }}" class="btn btn-danger">Cancel</a>
+                   <a href="{{ url_for('edit_category', category_id=category._id) }}" type="button"
                                     class="btn btn-warning modal-trigger">Edit</a>
-   
-    </div>
-    </div>
-  </form>
-    </div>
+                </div>
+            </div>
+    </form>
+</div>
 
 
 {% endblock %} 

@@ -4,15 +4,15 @@
 
      <!-- Heading -->
     <div class="row justify-content-center">
-<h2 class="text-center">{{ recipe.recipe_name }}</h2>
-</div>
-
-<div class="container">
-<div class="row justify-content-around">
-    <div class="col container justify-content-center shadow p-4 mb-2 bg-body rounded">
-        <div class="justify-content-center">
-            <h3>Ingredients:</h3>
-        </div> 
+        <h2 class="text-center">{{ recipe.recipe_name }}</h2>
+    </div>
+ <!-- display content -->
+    <div class="container">
+        <div class="row justify-content-around">
+            <div class="col container justify-content-center shadow p-4 mb-2 bg-body rounded">
+                <div class="justify-content-center">
+                    <h3>Ingredients:</h3>
+                </div> 
             <div>
                 <p>
                     <ul>
@@ -24,37 +24,38 @@
             </div>
             <div class="justify-content-center">
 
-<div class="dropdown col-8">
-  <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-   Buy the Ingredients from
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="https://www.amazon.co.uk/ref=nav_logo" target="_blank" rel="noopener noreferrer">Amazon</a>
-    <a class="dropdown-item" href="https://www.tesco.com/" target="_blank" rel="noopener noreferrer">Tesco</a>
-    <a class="dropdown-item" href="https://www.waitrose.com/" target="_blank" rel="noopener noreferrer">Waitrose</a>
-  </div>
-</div>
- </div>
+                <div class="dropdown col-8">
+                    <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" 
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     Buy the Ingredients from
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="https://www.amazon.co.uk/ref=nav_logo" target="_blank" rel="noopener noreferrer">Amazon</a>
+                        <a class="dropdown-item" href="https://www.tesco.com/" target="_blank" rel="noopener noreferrer">Tesco</a>
+                        <a class="dropdown-item" href="https://www.waitrose.com/" target="_blank" rel="noopener noreferrer">Waitrose</a>
+                    </div>
+                </div>
+            </div>
 
 
 
-</div>
-<div class="col container justify-content-center shadow p-4 mb-2 bg-body rounded">
+            </div>
+    <div class="col container justify-content-center shadow p-4 mb-2 bg-body rounded">
         <div class="justify-content-center">
             <h3>Method:</h3>
-        </div> 
-            <div>
-                <p>
+            </div> 
+                <div>
+                    <p>
                     <ol>
-                       {% for method in recipe.method.splitlines() %}
+                        {% for method in recipe.method.splitlines() %}
                           <li>{{ method }}</li>
                         {% endfor %}
                     </ol>
-            </p>
-    </div> 
-</div>
-</div>
-</div>
+                    </p>
+                </div> 
+            </div>
+        </div>
+    </div>
 </section>
 
 {% endblock %}
