@@ -4,12 +4,12 @@
  
 <div class="container justify-content-center shadow p-3 mb-5 bg-body rounded">
      <!-- Heading -->
-<form>
+<form  method="POST" action="{{ url_for('add_category') }}">
     <div class="row justify-content-center">
          <h2 class="text-center">Add Category</h2>
     </div>
     <div class="row">
-        <div class="input-group mb-3 col-6" method="POST" action="{{ url_for('add_category') }}">
+        <div class="input-group mb-3 col-6">
              
         </div>        
     </div> <!-- Category name input -->

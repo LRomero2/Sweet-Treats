@@ -175,6 +175,7 @@ def get_categories():
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
     if request.method == "POST":
+        print(request.form.get("category_name"))
         category = {
             "category_name": request.form.get("category_name")
         }
