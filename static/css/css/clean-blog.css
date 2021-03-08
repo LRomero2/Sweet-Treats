@@ -455,17 +455,24 @@ section#footer-overlay{
      width: 100%;
   background-color: rgba(109, 109, 109, 0.801);
 }
-
+/* custom css for the footer section */
 section #footer-photo .container-fluid{
     background-size: cover;
     height:300px;
 }
 
+section#footer-photo{
+background-image: url("../../img/social-media.jpg");
+width:100%;
+height:500px;
+background-size: cover;
+}
 
+/* custom css for the button on register form */
 div #register-button {
     padding:10px;
 }
-
+/* custom css for the icons in features section */
 #features i{
  background:-moz-linear-gradient(top, #0925c4 15%,  #f315bb 50%, #e78c14 80%, #ffae44 100%); 
         background: -webkit-linear-gradient(top, #0925c4 15%,  #f315bb 50%, #e78c14 80%, #ffae44 100%);
@@ -476,19 +483,12 @@ div #register-button {
        -webkit-text-fill-color:transparent;
 }
 
-
+/* custom css for the masthead img */
 header.masthead{
     background-image: url("../../imgs/colorful_cookies.jpg");
 }
 
-section#footer-photo{
-background-image: url("../../img/social-media.jpg");
-width:100%;
-height:500px;
-background-size: cover;
-}
-
-
+/* custom css for the sub-heading */
 blockquote{
     padding-top:20px;
 }
@@ -512,7 +512,7 @@ h3{
  color:black;
 }
 
-
+/* custom css for the imgs on recipe category cards */
 #card-images{
     padding-bottom:50px;
 }
@@ -533,20 +533,20 @@ div#recipe-cards2{
     padding-bottom:40px;
 }
 
-
+/* custom css for the profile welcome */
 div#profile-welcome{
     padding-top:40px;
     padding-bottom:30px;
 }
-
+/* custom css for the recipe accordion on profile page */
 div.accordion {
 width:60%;
 }
-
+/* custom css for the search bar */
 div#search-bar-input{
     width:40%;
 }
-
+/* custom css for the img in features section */
 div.device-mockup{
     padding:40px;
 }
@@ -559,7 +559,7 @@ div#feature-items{
      margin-right: 0;
   margin-left: 0;
 }
-
+/* custom css for the titles on cards in profile */
 h2.h2-profile-cards{
     color:black;
     font-family: 'Dosis', sans-serif;
@@ -570,16 +570,16 @@ h2.text-center{
     padding-top: 10px;
     padding-bottom: 20px;
 }
-
+/* custom css for the description heading on recipe cards */
 div#recipe-desc{
     padding-bottom: 15px;
 }
-
+/* custom css for the flash messages */
 #flash-messages {
     line-height: 2;
     color:#0925c4; 
 }
-
+/* custom css for the register form on register page */
 #register-form1{
     padding-bottom:10px;
 }
@@ -587,7 +587,7 @@ div#recipe-desc{
 #register-form2{
     padding-bottom:10px;
 }
-
+/* custom css for the profile heading */
 #profile-h{
 padding-bottom:10px;
 padding-top:20px;
@@ -596,7 +596,7 @@ padding-top:20px;
 #profile-name{
     padding-bottom:20px;
 }
-
+/* custom css for the categories in manage categories */
 #cats-row{
     padding:40px;
 }
